@@ -47,4 +47,9 @@ public class LogInPage extends BasePage{
         logInButton.click();
     }
 
+    public void navigateProfile(){
+        profilePicture.click();
+        profileButton.click();
+    }
+
 }

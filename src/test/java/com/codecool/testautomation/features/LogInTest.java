@@ -8,25 +8,30 @@ import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
 public class LogInTest {
     static LogInPage logInPage;
+    static ProfilePage profilePage;
     private static final String FAIL_TEST_DATA_SOURCE = "/login_fail.csv";
 
     @BeforeAll
     public static void setUp(){
         logInPage = new LogInPage();
+        profilePage = new ProfilePage();
         logInPage.openUrl("/login.jsp");
     }
 
     @AfterAll
     public static void tearDown(){
         logInPage.logInSuccessful();
-//        quitDriver();
+        quitDriver();
     }
 
     @Test
     public void logInSuccessful(){
-        logInPage.fillUsernameAndPassword(logInPage.USER_NAME, logInPage.PASSWORD);
+        String username = logInPage.USER_NAME;
+        String password = logInPage.PASSWORD;
+        logInPage.fillUsernameAndPassword(username, password);
         logInPage.logIn();
-//        Assertions.assertEquals("Auto Tester "+ LogIn.keyCode, lp.profileName.getText());
+        logInPage.navigateProfile();
+        Assertions.assertEquals(username,profilePage.profileUsername.getText());
     }
 
     @ParameterizedTest
