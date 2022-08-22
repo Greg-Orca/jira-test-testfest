@@ -31,7 +31,7 @@ public class LogInTest {
         logInPage.fillUsernameAndPassword(username, password);
         logInPage.logIn();
         logInPage.navigateProfile();
-        Assertions.assertEquals(username,profilePage.profileUsername.getText());
+        Assertions.assertEquals(username,profilePage.getProfileUsername());
     }
 
     @ParameterizedTest

@@ -19,13 +19,16 @@ public class CreateIssuePage extends BasePage {
     public WebElement summaryField;
 
     @FindBy(id = "create-issue-submit")
-    public WebElement createIssue;
+    public WebElement createIssueButton;
 
     @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div/a")
     public WebElement successfulMessage;
 
     @FindBy(xpath = "//*[@id=\"dialog-form\"]/div/div[2]/div[1]/div")
     public WebElement summaryErrorMessage;
+
+    @FindBy(xpath = "//*[@id=\"create-issue-dialog\"]/footer/div/div/button")
+    public WebElement cancelIssueButton;
 
 
     public CreateIssuePage() {
@@ -42,12 +45,11 @@ public class CreateIssuePage extends BasePage {
 
         waitUntilElementClickable(summaryField);
         summaryField.sendKeys(summary);
-
     }
 
     public void createIssue(){
-        waitUntilElementClickable(createIssue);
-        createIssue.click();
+        waitUntilElementClickable(createIssueButton);
+        createIssueButton.click();
     }
 
     public void navigateToNewIssue(){
@@ -71,5 +73,10 @@ public class CreateIssuePage extends BasePage {
     public boolean summaryErrorMessageIsPresent(){
         waitUntilElementLoaded(summaryErrorMessage);
         return summaryErrorMessage.isDisplayed();
+    }
+
+    public void cancelCreateIssue(){
+        cancelIssueButton.click();
+        driver.switchTo().alert().accept();
     }
 }

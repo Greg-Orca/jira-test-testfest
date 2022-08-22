@@ -8,4 +8,8 @@ public class ProfilePage extends BasePage{
     public WebElement profileUsername;
 
     public ProfilePage() {}
+
+    public String getProfileUsername() {
+        return profileUsername.getText();
+    }
 }
