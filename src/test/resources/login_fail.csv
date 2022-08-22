@@ -1,0 +1,4 @@
+username,password,expected
+automation23,.,"Sorry, your username and password are incorrect - please try again."
+automation23,IdontCare,"Sorry, your username and password are incorrect - please try again."
+.,IdontCare,"Sorry, your username and password are incorrect - please try again."

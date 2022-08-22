@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LogInPage extends BasePage{
+
     @FindBy(id = "login-form-username")
     public WebElement usernameField;
 
@@ -25,22 +26,25 @@ public class LogInPage extends BasePage{
     @FindBy(css = "p:nth-child(1)")
     public WebElement logInErrorMessage;
 
-    final String USER_NAME = System.getenv("USERNAME");
+    final String USER_NAME = System.getenv("USER_NAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
     public LogInPage() {}
 
-    public void fillUsernameAndPassword(){
+    public void logInSuccessful(){
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
-    }
-
-    public void logIn(){
         logInButton.click();
     }
 
-    public void openUrl(String url){
-        driver.get(url);
+    public void fillUsernameAndPassword(String username, String password){
+        usernameField.sendKeys(username);
+        passwordField.sendKeys(password);
+    }
+
+
+    public void logIn(){
+        logInButton.click();
     }
 
 }

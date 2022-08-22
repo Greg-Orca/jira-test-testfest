@@ -14,6 +14,7 @@ public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     private Duration WAIT_DURATION = Duration.ofSeconds(5);
+    private static String BASE_URL = System.getenv("BASE_URL");
 
     public BasePage(){
         driver = DriverSingleton.getDriver();
@@ -24,5 +25,9 @@ public abstract class BasePage {
 
     public void waitUntilElementLoaded(WebElement webElement) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+    public void openUrl(String url){
+        driver.get(BASE_URL+url);
     }
 }
