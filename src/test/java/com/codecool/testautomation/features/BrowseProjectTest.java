@@ -1,6 +1,5 @@
 package com.codecool.testautomation.features;
 
-import com.codecool.testautomation.utils.Utils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

@@ -27,6 +27,10 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
+    public void waitUntilElementClickable(WebElement webElement){
+        wait.until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
     public void openUrl(String url){
         driver.get(BASE_URL+url);
     }
