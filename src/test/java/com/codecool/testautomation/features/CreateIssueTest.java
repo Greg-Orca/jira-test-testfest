@@ -22,11 +22,11 @@ public class CreateIssueTest {
 
     @AfterAll
     public static void tearDown(){
-//        quitDriver();
+        quitDriver();
     }
 
     @Test
-    public void createIssue(){
+    public void createIssueSuccessful(){
         String project = "mtp";
         String type = "bug";
         String summary = "new issue test";
@@ -37,5 +37,16 @@ public class CreateIssueTest {
         String actualResult = issuePage.getSummaryValue();
         Assertions.assertEquals(summary,actualResult);
         issuePage.deleteIssue();
+    }
+
+    @Test
+    public void createIssueEmptySummaryUnsuccessful(){
+        String project = "mtp";
+        String type = "bug";
+        String summary = "";
+        createIssuePage.navigateCreate();
+        createIssuePage.fillIssue(project,type ,summary);
+        createIssuePage.createIssue();
+        Assertions.assertTrue(createIssuePage.summaryErrorMessageIsPresent());
     }
 }

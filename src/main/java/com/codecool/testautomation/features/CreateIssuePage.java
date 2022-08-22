@@ -24,6 +24,10 @@ public class CreateIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div/a")
     public WebElement successfulMessage;
 
+    @FindBy(xpath = "//*[@id=\"dialog-form\"]/div/div[2]/div[1]/div")
+    public WebElement summaryErrorMessage;
+
+
     public CreateIssuePage() {
     }
 
@@ -62,5 +66,10 @@ public class CreateIssuePage extends BasePage {
         }
         webElement.sendKeys(text);
         webElement.sendKeys(Keys.ENTER);
+    }
+
+    public boolean summaryErrorMessageIsPresent(){
+        waitUntilElementLoaded(summaryErrorMessage);
+        return summaryErrorMessage.isDisplayed();
     }
 }
