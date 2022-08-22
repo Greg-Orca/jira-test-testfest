@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
@@ -62,5 +64,15 @@ public class CreateIssueTest {
         createIssuePage.cancelCreateIssue();
         createIssuePage.openUrl("/issues/?jql=project%20%3D%20MTP%20AND%20text%20~%20%27new%20issue%20test%27");
         Assertions.assertTrue(searchIssuePage.noIssueFoundMessageIsPresent());
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/create_project_with_types.csv", numLinesToSkip = 1)
+    public void specificIssuesHaveIssueTypes(String project,String type,String expected){
+        createIssuePage.navigateCreate();
+        createIssuePage.fillIssue(project,type,"...");
+        Assertions.assertTrue(createIssuePage.typeIsPresent(expected));
+        createIssuePage.cancelCreateIssue();
+
     }
 }

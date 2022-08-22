@@ -30,21 +30,20 @@ public class CreateIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"create-issue-dialog\"]/footer/div/div/button")
     public WebElement cancelIssueButton;
 
-
     public CreateIssuePage() {
     }
 
     public void navigateCreate(){
+        waitUntilElementClickable(createButton);
         createButton.click();
     }
 
     public void fillIssue(String project, String type, String summary){
-
         selectDropdown(projectSelect,project);
         selectDropdown(issueTypeSelect,type);
-
         waitUntilElementClickable(summaryField);
         summaryField.sendKeys(summary);
+
     }
 
     public void createIssue(){
@@ -76,7 +75,13 @@ public class CreateIssuePage extends BasePage {
     }
 
     public void cancelCreateIssue(){
+        waitUntilElementClickable(cancelIssueButton);
         cancelIssueButton.click();
         driver.switchTo().alert().accept();
+    }
+
+    public boolean typeIsPresent(String expected){
+        System.out.println(issueTypeSelect.getAttribute("value") + expected);
+        return issueTypeSelect.getAttribute("value").equals(expected);
     }
 }
