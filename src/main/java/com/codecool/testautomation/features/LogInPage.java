@@ -32,6 +32,7 @@ public class LogInPage extends BasePage{
     public LogInPage() {}
 
     public void logInSuccessful(){
+        openUrl("/login.jsp");
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
         logInButton.click();
@@ -51,5 +52,4 @@ public class LogInPage extends BasePage{
         profilePicture.click();
         profileButton.click();
     }
-
 }
