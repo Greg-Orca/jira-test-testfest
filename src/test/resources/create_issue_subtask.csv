@@ -1,0 +1,4 @@
+url,subtaskName,expected
+/projects/JETI/issues/JETI-103,subtask-test,true
+/projects/TOUCAN/issues/TOUCAN-122,subtask-test,true
+/projects/COALA/issues/COALA-130,subtask-test,true

@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
-
 public class CreateIssueTest {
+    static final String CREATE_ISSUE_WITH_TYPES = "/create_issue_with_types.csv";
+    static final String CREATE_ISSUE_SUBTASK = "/create_issue_subtask.csv";
     static CreateIssuePage createIssuePage;
     static LogInPage logInPage;
     static IssuePage issuePage;
@@ -26,7 +26,7 @@ public class CreateIssueTest {
 
     @AfterAll
     public static void tearDown(){
-        quitDriver();
+//        quitDriver();
     }
 
     @Test
@@ -67,12 +67,22 @@ public class CreateIssueTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/create_project_with_types.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = CREATE_ISSUE_WITH_TYPES, numLinesToSkip = 1)
     public void specificIssuesHaveIssueTypes(String project,String type,String expected){
         createIssuePage.navigateCreate();
         createIssuePage.fillIssue(project,type,"...");
         Assertions.assertTrue(createIssuePage.typeIsPresent(expected));
         createIssuePage.cancelCreateIssue();
+    }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = CREATE_ISSUE_SUBTASK, numLinesToSkip = 1)
+    public void createIssueWithSubtask(String url,String subtaskName, String expected){
+        issuePage.openUrl(url);
+        issuePage.navigateToCreateSubtask();
+        createIssuePage.createSubtask(subtaskName);
+        boolean result= expected.equals("true") && issuePage.subtaskIsPresent();
+        Assertions.assertTrue(result);
+        issuePage.deleteSubtask();
     }
 }

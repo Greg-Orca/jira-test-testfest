@@ -84,4 +84,10 @@ public class CreateIssuePage extends BasePage {
         System.out.println(issueTypeSelect.getAttribute("value") + expected);
         return issueTypeSelect.getAttribute("value").equals(expected);
     }
+
+    public void createSubtask(String summary){
+        waitUntilElementLoaded(summaryField);
+        summaryField.sendKeys(summary);
+        createIssueButton.click();
+    }
 }

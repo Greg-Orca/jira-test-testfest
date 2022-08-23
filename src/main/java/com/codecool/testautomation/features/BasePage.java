@@ -34,4 +34,9 @@ public abstract class BasePage {
     public void openUrl(String url){
         driver.get(BASE_URL+url);
     }
+
+    public boolean elementIsPresent(WebElement webElement){
+       waitUntilElementLoaded(webElement);
+       return webElement.isDisplayed();
+    }
 }
