@@ -26,6 +26,12 @@ public class LogInPage extends BasePage{
     @FindBy(css = "p:nth-child(1)")
     public WebElement logInErrorMessage;
 
+    @FindBy(id = "log_out")
+    public WebElement logOutButton;
+
+    @FindBy(xpath = "//*[@id=\"login-form\"]/div[1]/div[1]")
+    public WebElement warningMessageBox;
+
     final String USER_NAME = System.getenv("USER_NAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
@@ -51,5 +57,16 @@ public class LogInPage extends BasePage{
     public void navigateProfile(){
         profilePicture.click();
         profileButton.click();
+    }
+
+    public void logOutSuccessful(){
+        waitUntilElementClickable(profilePicture);
+        profilePicture.click();
+        logOutButton.click();
+    }
+
+    public boolean warningMessageIsPresent(){
+        waitUntilElementLoaded(warningMessageBox);
+        return warningMessageBox.isDisplayed();
     }
 }
