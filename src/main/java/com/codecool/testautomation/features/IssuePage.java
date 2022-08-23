@@ -30,6 +30,9 @@ public class IssuePage extends BasePage{
     @FindBy(id = "issues-subnavigation-title")
     public WebElement issueSubnavigationTitle;
 
+    @FindBy(id = "key-val")
+    public WebElement issueKeyVal;
+
     public IssuePage() {
     }
 
@@ -68,6 +71,11 @@ public class IssuePage extends BasePage{
         deleteIssueButton.click();
         waitUntilElementClickable(deleteIssueConfirmButton);
         deleteIssueConfirmButton.click();
+    }
+
+    public String getIssueKeyVal(){
+        waitUntilElementLoaded(issueKeyVal);
+        return issueKeyVal.getText();
     }
 
 }
