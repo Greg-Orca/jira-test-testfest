@@ -45,6 +45,9 @@ public class IssuePage extends BasePage{
     @FindBy(xpath = "//*[@id=\"main\"]/div/div[1]/form/div[1]/div[1]/div[1]/div[1]/div/div[1]/ul/li[7]/button")
     public WebElement searchIssueButton;
 
+    @FindBy(id = "description-val")
+    public WebElement descriptionValue;
+
     public IssuePage() {
     }
 
@@ -101,6 +104,11 @@ public class IssuePage extends BasePage{
         waitUntilElementLoaded(searchBar);
         searchBar.sendKeys(summary);
         searchIssueButton.click();
+    }
+
+    public String getDescriptionValue(){
+        waitUntilElementLoaded(descriptionValue);
+        return descriptionValue.getText();
     }
 
 }
