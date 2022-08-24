@@ -33,6 +33,18 @@ public class IssuePage extends BasePage{
     @FindBy(id = "key-val")
     public WebElement issueKeyVal;
 
+    @FindBy(id = "find_link")
+    public WebElement issueMenuButton;
+
+    @FindBy(id = "issues_new_search_link_lnk")
+    public WebElement issueMenuSearchButton;
+
+    @FindBy(id = "searcher-query")
+    public WebElement searchBar;
+
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div[1]/form/div[1]/div[1]/div[1]/div[1]/div/div[1]/ul/li[7]/button")
+    public WebElement searchIssueButton;
+
     public IssuePage() {
     }
 
@@ -76,6 +88,19 @@ public class IssuePage extends BasePage{
     public String getIssueKeyVal(){
         waitUntilElementLoaded(issueKeyVal);
         return issueKeyVal.getText();
+    }
+
+    public void navigateToSearchIssuePage(){
+        waitUntilElementClickable(issueMenuButton);
+        issueMenuButton.click();
+        waitUntilElementClickable(issueMenuSearchButton);
+        issueMenuSearchButton.click();
+    }
+
+    public void searchForIssue(String summary){
+        waitUntilElementLoaded(searchBar);
+        searchBar.sendKeys(summary);
+        searchIssueButton.click();
     }
 
 }
