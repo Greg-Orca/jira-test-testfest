@@ -1,0 +1,10 @@
+issueUrl,expected
+/browse/JETI-1,true
+/browse/JETI-2,true
+/browse/JETI-3,true
+/browse/TOUCAN-1,true
+/browse/TOUCAN-2,true
+/browse/TOUCAN-3,true
+/browse/COALA-1,true
+/browse/COALA-2,true
+/browse/COALA-3,true

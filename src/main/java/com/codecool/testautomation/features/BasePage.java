@@ -13,7 +13,7 @@ import java.time.Duration;
 public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
-    private Duration WAIT_DURATION = Duration.ofSeconds(5);
+    private Duration WAIT_DURATION = Duration.ofSeconds(3);
     private static String BASE_URL = System.getenv("BASE_URL");
 
     public BasePage(){
