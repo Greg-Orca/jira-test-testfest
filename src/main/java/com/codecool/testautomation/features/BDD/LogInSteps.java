@@ -1,6 +1,8 @@
 package com.codecool.testautomation.features.BDD;
 
+import com.codecool.testautomation.features.KDT.BasePage;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -19,12 +21,10 @@ import io.cucumber.java.en.When;
 
 import java.time.Duration;
 
-public class LogInSteps {
+public class LogInSteps extends BasePage {
     final String BASE_URL = "https://jira-auto.codecool.metastage.net";
     final String USER_NAME = System.getenv("USER_NAME");
     final String PASSWORD = System.getenv("PASSWORD");
-    WebDriver driver;
-    WebDriverWait wait;
 
     @FindBy(id = "login-form-username")
     public WebElement usernameField;
@@ -57,16 +57,7 @@ public class LogInSteps {
     public WebElement profileUsername;
 
 
-    @Given("browser is open")
-    public void browserIsOpen(){
-        driver = new ChromeDriver();
-        PageFactory.initElements(driver, this);
-        wait = new WebDriverWait(driver,Duration.ofSeconds(3));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-    }
-
-    @And("user is on login page")
+    @Given("user is on login page")
     public void userIsOnLoginPage(){
         driver.get(BASE_URL+"/login.jsp");
     }
@@ -104,7 +95,6 @@ public class LogInSteps {
         profilePicture.click();
         profileButton.click();
         Assertions.assertEquals(USER_NAME,profileUsername.getText());
-        driver.quit();
     }
 
     @Then("user profile page is not visible")
@@ -121,6 +111,20 @@ public class LogInSteps {
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
         logInButton.click();
+    }
+
+    @And("user is logged in")
+    public void userLoginSuccessful(){
+        driver.get(BASE_URL+"/login.jsp");
+        usernameField.clear();
+        passwordField.clear();
+        usernameField.sendKeys(USER_NAME);
+        passwordField.sendKeys(PASSWORD);
+        logInButton.click();
+    }
+
+    @After()
+    public void closeBrowser() {
         driver.quit();
     }
 }
