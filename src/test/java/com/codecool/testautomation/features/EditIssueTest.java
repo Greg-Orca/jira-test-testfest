@@ -8,6 +8,9 @@ public class EditIssueTest {
     static LogInPage logInPage;
     static EditIssuePage editIssuePage;
     static IssuePage issuePage;
+    private final String SUMMARY = "Happy Path";
+    private final String SUMMARY_EDIT = "Happy Path Edit";
+    private final String DESCRIPTION = "new description";
 
     @BeforeAll
     public static void setUp() {
@@ -24,10 +27,9 @@ public class EditIssueTest {
 
     @AfterEach
     public void restore(){
-        String summary = "Happy Path";
         String description = "";
         editIssuePage.openEditIssue();
-        editIssuePage.editSummary(summary);
+        editIssuePage.editSummary(SUMMARY);
         editIssuePage.editDescription(description);
         editIssuePage.submitEdit();
     }
@@ -39,21 +41,29 @@ public class EditIssueTest {
 
     @Test
     public void editExistingIssueSuccessful(){
-        String summary = "Happy Path Edit";
+
         editIssuePage.openEditIssue();
-        editIssuePage.editSummary(summary);
+        editIssuePage.editSummary(SUMMARY_EDIT);
         editIssuePage.submitEdit();
-        String actualValue = issuePage.getSummaryValue();
-        Assertions.assertEquals(summary,actualValue);
+        String actualSummary = issuePage.getSummaryValue();
+        Assertions.assertEquals(SUMMARY_EDIT,actualSummary);
     }
 
     @Test
     public void addNewFieldToIssueSuccessful(){
-        String description = "new description";
         editIssuePage.openEditIssue();
-        editIssuePage.editDescription(description);
+        editIssuePage.editDescription(DESCRIPTION);
         editIssuePage.submitEdit();
         String actualDescription = issuePage.getDescriptionValue();
-        Assertions.assertEquals(description,actualDescription);
+        Assertions.assertEquals(DESCRIPTION,actualDescription);
+    }
+
+    @Test
+    public void editIssueCancelSuccessful(){
+        editIssuePage.openEditIssue();
+        editIssuePage.editSummary(SUMMARY_EDIT);
+        editIssuePage.cancelEdit();
+        String actualSummary = issuePage.getSummaryValue();
+        Assertions.assertEquals(SUMMARY,actualSummary);
     }
 }

@@ -23,6 +23,9 @@ public class EditIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"description-wiki-edit\"]/nav/div/div/ul/li[2]/button")
     WebElement descriptionSwitchToTextModeButton;
 
+    @FindBy(xpath = "//*[@id=\"edit-issue-dialog\"]/footer/div/div/button")
+    WebElement cancelEditIssueButton;
+
     public EditIssuePage() {
     }
 
@@ -47,5 +50,10 @@ public class EditIssuePage extends BasePage {
         descriptionSwitchToTextModeButton.click();
         editDescriptionField.clear();
         editDescriptionField.sendKeys(description);
+    }
+
+    public void cancelEdit(){
+        cancelEditIssueButton.click();
+        driver.switchTo().alert().accept();
     }
 }
