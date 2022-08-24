@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
 public class LogOutTest {
-    static LogInPage logInPage;
+    static LoginPage loginPage;
     static ProfilePage profilePage;
 
     @BeforeAll
     public static void setUp(){
-        logInPage = new LogInPage();
+        loginPage = new LoginPage();
         profilePage = new ProfilePage();
     }
 
@@ -24,10 +24,10 @@ public class LogOutTest {
 
     @Test
     public void logOutSuccessful(){
-        logInPage.logInSuccessful();
-        logInPage.logOutSuccessful();
-        logInPage.openUrl("/secure/ViewProfile.jspa");
-        Assertions.assertTrue(logInPage.warningMessageIsPresent());
+        loginPage.logInSuccessful();
+        loginPage.logOutSuccessful();
+        loginPage.openUrl("/secure/ViewProfile.jspa");
+        Assertions.assertTrue(loginPage.warningMessageIsPresent());
 
     }
 }

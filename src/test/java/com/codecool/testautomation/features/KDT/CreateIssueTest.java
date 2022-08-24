@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +11,7 @@ public class CreateIssueTest {
     static final String CREATE_ISSUE_WITH_TYPES = "/create_issue_with_types.csv";
     static final String CREATE_ISSUE_SUBTASK = "/create_issue_subtask.csv";
     static CreateIssuePage createIssuePage;
-    static LogInPage logInPage;
+    static LoginPage loginPage;
     static IssuePage issuePage;
     static SearchIssuePage searchIssuePage;
 
@@ -19,9 +19,9 @@ public class CreateIssueTest {
     public static void setUp(){
         createIssuePage = new CreateIssuePage();
         issuePage = new IssuePage();
-        logInPage = new LogInPage();
+        loginPage = new LoginPage();
         searchIssuePage = new SearchIssuePage();
-        logInPage.logInSuccessful();
+        loginPage.logInSuccessful();
     }
 
     @AfterAll

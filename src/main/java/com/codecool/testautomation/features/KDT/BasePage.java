@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import com.codecool.testautomation.utils.DriverSingleton;
 import org.openqa.selenium.WebDriver;

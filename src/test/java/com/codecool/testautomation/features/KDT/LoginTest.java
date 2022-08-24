@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -6,31 +6,31 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
-public class LogInTest {
-    static LogInPage logInPage;
+public class LoginTest {
+    static LoginPage loginPage;
     static ProfilePage profilePage;
     private static final String FAIL_TEST_DATA_SOURCE = "/login_fail.csv";
 
     @BeforeAll
     public static void setUp(){
-        logInPage = new LogInPage();
+        loginPage = new LoginPage();
         profilePage = new ProfilePage();
-        logInPage.openUrl("/login.jsp");
+        loginPage.openUrl("/login.jsp");
     }
 
     @AfterAll
     public static void tearDown(){
-        logInPage.logInSuccessful();
+        loginPage.logInSuccessful();
         quitDriver();
     }
 
     @Test
-    public void logInSuccessful(){
-        String username = logInPage.USER_NAME;
-        String password = logInPage.PASSWORD;
-        logInPage.fillUsernameAndPassword(username, password);
-        logInPage.logIn();
-        logInPage.navigateProfile();
+    public void loginSuccessful(){
+        String username = loginPage.USER_NAME;
+        String password = loginPage.PASSWORD;
+        loginPage.fillUsernameAndPassword(username, password);
+        loginPage.logIn();
+        loginPage.navigateProfile();
         Assertions.assertEquals(username,profilePage.getProfileUsername());
     }
 
@@ -44,9 +44,9 @@ public class LogInTest {
 //            password = "";
 //        }
         System.out.println(username);
-        logInPage.fillUsernameAndPassword(username,password);
-        logInPage.logIn();
-        String actual = logInPage.logInErrorMessage.getText();
+        loginPage.fillUsernameAndPassword(username,password);
+        loginPage.logIn();
+        String actual = loginPage.logInErrorMessage.getText();
         Assertions.assertEquals(expected, actual);
 
     }

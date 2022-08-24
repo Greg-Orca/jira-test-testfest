@@ -1,9 +1,9 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LogInPage extends BasePage{
+public class LoginPage extends BasePage{
 
     @FindBy(id = "login-form-username")
     public WebElement usernameField;
@@ -35,7 +35,7 @@ public class LogInPage extends BasePage{
     final String USER_NAME = System.getenv("USER_NAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
-    public LogInPage() {}
+    public LoginPage() {}
 
     public void logInSuccessful(){
         openUrl("/login.jsp");

@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -11,13 +11,13 @@ import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 public class EditableIssueTest {
     final String EDIT_ISSUES_RESOURCE = "/edit_issues_resource.csv";
     static EditIssuePage editIssuePage;
-    static LogInPage logInPage;
+    static LoginPage loginPage;
 
     @BeforeAll
     public static void setUp() {
         editIssuePage = new EditIssuePage();
-        logInPage = new LogInPage();
-        logInPage.logInSuccessful();
+        loginPage = new LoginPage();
+        loginPage.logInSuccessful();
     }
 
     @AfterAll

@@ -1,11 +1,11 @@
-package com.codecool.testautomation.features;
+package com.codecool.testautomation.features.KDT;
 
 import org.junit.jupiter.api.*;
 
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
 public class EditIssueTest {
-    static LogInPage logInPage;
+    static LoginPage loginPage;
     static EditIssuePage editIssuePage;
     static IssuePage issuePage;
     private final String SUMMARY = "Happy Path";
@@ -14,14 +14,14 @@ public class EditIssueTest {
 
     @BeforeAll
     public static void setUp() {
-        logInPage = new LogInPage();
+        loginPage = new LoginPage();
         editIssuePage = new EditIssuePage();
         issuePage = new IssuePage();
     }
 
     @BeforeEach
     public void setUpEach(){
-        logInPage.logInSuccessful();
+        loginPage.logInSuccessful();
         issuePage.openUrl("/projects/MTP/issues/MTP-2020");
     }
 
