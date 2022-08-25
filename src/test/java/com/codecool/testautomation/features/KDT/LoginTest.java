@@ -1,5 +1,6 @@
 package com.codecool.testautomation.features.KDT;
 
+import com.codecool.testautomation.utils.Utils;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -15,6 +16,11 @@ public class LoginTest {
     public static void setUp(){
         loginPage = new LoginPage();
         profilePage = new ProfilePage();
+
+    }
+
+    @BeforeEach
+    public void setUpEach(){
         loginPage.openUrl("/login.jsp");
     }
 
@@ -36,18 +42,15 @@ public class LoginTest {
     @ParameterizedTest
     @CsvFileSource(resources = FAIL_TEST_DATA_SOURCE, numLinesToSkip = 1)
     void loginUnsuccessful(String username, String password, String expected){
-//        if (username==null){
-//            username = "";
-//        }
-//        else if (password==null){
-//            password = "";
-//        }
+        String passwordNonNull = Utils.nullToEmptyString(password);
+        String usernameNonNull = Utils.nullToEmptyString(username);
         System.out.println(username);
-        loginPage.fillUsernameAndPassword(username,password);
+        loginPage.fillUsernameAndPassword(usernameNonNull,passwordNonNull);
         loginPage.logIn();
         String actual = loginPage.logInErrorMessage.getText();
         Assertions.assertEquals(expected, actual);
+        //restore user token, avoid captcha
         loginPage.logInSuccessful();
+        loginPage.logOutSuccessful();
     }
-
 }

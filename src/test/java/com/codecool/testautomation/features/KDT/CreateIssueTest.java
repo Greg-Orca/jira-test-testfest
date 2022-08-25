@@ -1,11 +1,10 @@
 package com.codecool.testautomation.features.KDT;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
+import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
 public class CreateIssueTest {
     static final String CREATE_ISSUE_WITH_TYPES = "/create_issue_with_types.csv";
@@ -15,19 +14,21 @@ public class CreateIssueTest {
     static IssuePage issuePage;
     static SearchIssuePage searchIssuePage;
 
-    @BeforeAll
-    public static void setUp(){
+
+    @BeforeEach
+    public void SetUp(){
         createIssuePage = new CreateIssuePage();
         issuePage = new IssuePage();
-        loginPage = new LoginPage();
         searchIssuePage = new SearchIssuePage();
+        loginPage = new LoginPage();
         loginPage.logInSuccessful();
     }
 
-    @AfterAll
-    public static void tearDown(){
-//        quitDriver();
+    @AfterEach
+    public void tearDown(){
+        quitDriver();
     }
+
 
     @Test
     public void createIssueSuccessful(){
@@ -66,14 +67,14 @@ public class CreateIssueTest {
         Assertions.assertTrue(searchIssuePage.noIssueFoundMessageIsPresent());
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = CREATE_ISSUE_WITH_TYPES, numLinesToSkip = 1)
-    public void specificIssuesHaveIssueTypes(String project,String type,String expected){
-        createIssuePage.navigateCreate();
-        createIssuePage.fillIssue(project,type,"...");
-        Assertions.assertTrue(createIssuePage.typeIsPresent(expected));
-        createIssuePage.cancelCreateIssue();
-    }
+//    @ParameterizedTest
+//    @CsvFileSource(resources = CREATE_ISSUE_WITH_TYPES, numLinesToSkip = 1)
+//    public void specificIssuesHaveIssueTypes(String project,String type,String expected) {
+//        createIssuePage.navigateCreate();
+//        createIssuePage.fillIssue(project,type,"");
+//        Assertions.assertEquals(expected,createIssuePage.typeIsPresent());
+//        createIssuePage.cancelCreateIssue();
+//    }
 
     @ParameterizedTest
     @CsvFileSource(resources = CREATE_ISSUE_SUBTASK, numLinesToSkip = 1)

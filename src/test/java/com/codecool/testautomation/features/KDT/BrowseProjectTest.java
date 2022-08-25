@@ -40,7 +40,5 @@ public class BrowseProjectTest {
         browseProjectPage.findProject(projectName);
         boolean isPresent = browseProjectPage.projectIsPresent(exceptedResult);
         Assertions.assertTrue(isPresent);
-
-
     }
 }

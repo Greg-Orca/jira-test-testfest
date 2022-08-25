@@ -1,10 +1,10 @@
 project,type,expected
+JETI project,Story,Story
+JETI project,Task,Task
+JETI project,Bug,Bug
 TOUCAN project,Bug,Bug
 TOUCAN project,Story,Story
 TOUCAN project,Task,Task
-JETI project,Bug,Bug
-JETI project,Task,Task
-JETI project,Story,Story
 COALA project,Bug,Bug
 COALA project,Story,Story
 COALA project,Task,Task

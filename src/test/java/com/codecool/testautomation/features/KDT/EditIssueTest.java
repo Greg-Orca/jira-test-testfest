@@ -26,7 +26,7 @@ public class EditIssueTest {
     }
 
     @AfterEach
-    public void restore(){
+    public void restore() {
         String description = "";
         editIssuePage.openEditIssue();
         editIssuePage.editSummary(SUMMARY);

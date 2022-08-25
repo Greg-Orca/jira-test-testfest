@@ -30,6 +30,6 @@ public class EditableIssueTest {
     public void editableIssue(String issueUrl, String expected){
         editIssuePage.openUrl(issueUrl);
         boolean editPresent = editIssuePage.elementIsPresent(editIssuePage.editButton);
-        Assertions.assertTrue(editPresent&&expected.equals("true"));
+        Assertions.assertTrue(editPresent && expected.equals("true"));
     }
 }

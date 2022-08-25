@@ -26,6 +26,9 @@ public class EditIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"edit-issue-dialog\"]/footer/div/div/button")
     WebElement cancelEditIssueButton;
 
+    @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div/button")
+    WebElement closeSuccessfulMessage;
+
     public EditIssuePage() {
     }
 
@@ -43,6 +46,8 @@ public class EditIssuePage extends BasePage {
     public void submitEdit(){
         editSubmitButton.click();
         waitUntilElementLoaded(successfulEditMessage);
+        waitUntilElementClickable(closeSuccessfulMessage);
+        closeSuccessfulMessage.click();
     }
 
     public void editDescription(String description){

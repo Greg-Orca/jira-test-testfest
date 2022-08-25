@@ -33,6 +33,9 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"login-form\"]/div[1]/div[1]")
     public WebElement warningMessageBox;
 
+    @FindBy(linkText = "Log in again.")
+    public WebElement logInAgainLink;
+
     final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
     final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
 
@@ -46,6 +49,7 @@ public class LoginPage extends BasePage{
     }
 
     public void fillUsernameAndPassword(String username, String password){
+        waitUntilElementLoaded(usernameField);
         usernameField.sendKeys(username);
         passwordField.sendKeys(password);
     }
@@ -70,5 +74,10 @@ public class LoginPage extends BasePage{
     public boolean warningMessageIsPresent(){
         waitUntilElementLoaded(warningMessageBox);
         return warningMessageBox.isDisplayed();
+    }
+
+    public void navigateLoginAfterLogout(){
+        waitUntilElementLoaded(logInAgainLink);
+        logInAgainLink.click();
     }
 }
