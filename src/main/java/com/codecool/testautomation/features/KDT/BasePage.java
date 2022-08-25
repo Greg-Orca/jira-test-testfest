@@ -1,6 +1,7 @@
 package com.codecool.testautomation.features.KDT;
 
 import com.codecool.testautomation.utils.DriverSingleton;
+import com.codecool.testautomation.utils.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -13,8 +14,8 @@ import java.time.Duration;
 public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
-    private Duration WAIT_DURATION = Duration.ofSeconds(3);
-    private static String BASE_URL = System.getenv("BASE_URL");
+    private final Duration WAIT_DURATION = Duration.ofSeconds(3);
+    private static String BASE_URL = Utils.getEnvironmentVariable("BASE_URL");
 
     public BasePage(){
         driver = DriverSingleton.getDriver();

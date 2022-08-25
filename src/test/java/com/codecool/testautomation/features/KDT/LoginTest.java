@@ -20,7 +20,6 @@ public class LoginTest {
 
     @AfterAll
     public static void tearDown(){
-        loginPage.logInSuccessful();
         quitDriver();
     }
 
@@ -36,7 +35,7 @@ public class LoginTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = FAIL_TEST_DATA_SOURCE, numLinesToSkip = 1)
-    void loginFail(String username, String password, String expected){
+    void loginUnsuccessful(String username, String password, String expected){
 //        if (username==null){
 //            username = "";
 //        }
@@ -48,7 +47,7 @@ public class LoginTest {
         loginPage.logIn();
         String actual = loginPage.logInErrorMessage.getText();
         Assertions.assertEquals(expected, actual);
-
+        loginPage.logInSuccessful();
     }
 
 }

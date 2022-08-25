@@ -1,5 +1,6 @@
 package com.codecool.testautomation.features.KDT;
 
+import com.codecool.testautomation.utils.Utils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,8 +33,8 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"login-form\"]/div[1]/div[1]")
     public WebElement warningMessageBox;
 
-    final String USER_NAME = System.getenv("USER_NAME");
-    final String PASSWORD = System.getenv("PASSWORD");
+    final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
+    final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
 
     public LoginPage() {}
 
@@ -55,6 +56,7 @@ public class LoginPage extends BasePage{
     }
 
     public void navigateProfile(){
+        waitUntilElementClickable(profilePicture);
         profilePicture.click();
         profileButton.click();
     }

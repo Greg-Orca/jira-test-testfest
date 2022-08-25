@@ -10,6 +10,7 @@ public class ProfilePage extends BasePage{
     public ProfilePage() {}
 
     public String getProfileUsername() {
+        waitUntilElementLoaded(profileUsername);
         return profileUsername.getText();
     }
 }
