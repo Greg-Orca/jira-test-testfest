@@ -71,14 +71,6 @@ public class CreateIssueTest {
         Assertions.assertTrue(searchIssuePage.noIssueFoundMessageIsPresent());
     }
 
-//    @ParameterizedTest
-//    @CsvFileSource(resources = CREATE_ISSUE_WITH_TYPES, numLinesToSkip = 1)
-//    public void specificIssuesHaveIssueTypes(String project,String type,String expected) {
-//        createIssuePage.navigateCreate();
-//        createIssuePage.fillIssue(project,type,"");
-//        Assertions.assertEquals(expected,createIssuePage.typeIsPresent());
-//        createIssuePage.cancelCreateIssue();
-//    }
 
     @ParameterizedTest
     @CsvFileSource(resources = CREATE_ISSUE_SUBTASK, numLinesToSkip = 1)

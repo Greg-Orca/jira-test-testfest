@@ -31,15 +31,6 @@ public class LogInSteps extends BasePage {
     @FindBy(id = "view_profile")
     public WebElement profileButton;
 
-    @FindBy(id = "up-user-title-name")
-    public WebElement profileName;
-
-    @FindBy(css = "p:nth-child(1)")
-    public WebElement logInErrorMessage;
-
-    @FindBy(id = "log_out")
-    public WebElement logOutButton;
-
     @FindBy(xpath = "//*[@id=\"login-form\"]/div[1]/div[1]")
     public WebElement warningMessageBox;
 
@@ -56,7 +47,6 @@ public class LogInSteps extends BasePage {
     public void enterUsernamePassword(){
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
-
     }
 
     @When("user enters {string} and {string}")
@@ -73,7 +63,6 @@ public class LogInSteps extends BasePage {
         else {
             passwordField.sendKeys("invalidpw");
         }
-
     }
     @And("click login")
     public void clickLogin(){

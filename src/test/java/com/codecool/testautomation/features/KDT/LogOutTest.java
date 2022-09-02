@@ -30,6 +30,5 @@ public class LogOutTest {
         loginPage.logOutSuccessful();
         loginPage.openUrl("/secure/ViewProfile.jspa");
         Assertions.assertTrue(loginPage.warningMessageIsPresent());
-
     }
 }

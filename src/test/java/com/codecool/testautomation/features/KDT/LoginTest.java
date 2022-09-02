@@ -18,7 +18,6 @@ public class LoginTest {
     public static void setUp(){
         loginPage = new LoginPage();
         profilePage = new ProfilePage();
-
     }
 
     @BeforeEach

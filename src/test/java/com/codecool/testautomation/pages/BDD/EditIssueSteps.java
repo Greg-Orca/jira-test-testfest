@@ -11,8 +11,6 @@ import io.cucumber.java.en.When;
 
 public class EditIssueSteps extends BasePage {
     final String BASE_URL = "https://jira-auto.codecool.metastage.net";
-    final String USER_NAME = System.getenv("USER_NAME");
-    final String PASSWORD = System.getenv("PASSWORD");
 
     @FindBy(id = "edit-issue")
     public WebElement editButton;
@@ -53,7 +51,6 @@ public class EditIssueSteps extends BasePage {
     public void validateIssueIsRenamed(String summary){
         successfulEditMessage.isDisplayed();
         Assertions.assertEquals(summary,summaryValue.getText());
-
     }
 
     @And("user restore the issue to {string}")
