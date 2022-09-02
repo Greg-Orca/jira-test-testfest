@@ -1,26 +1,13 @@
-package com.codecool.testautomation.features.BDD;
+package com.codecool.testautomation.pages.BDD;
 
-import com.codecool.testautomation.features.KDT.BasePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.codecool.testautomation.pages.KDT.BasePage;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.time.Duration;
 
 public class EditIssueSteps extends BasePage {
     final String BASE_URL = "https://jira-auto.codecool.metastage.net";
@@ -28,25 +15,25 @@ public class EditIssueSteps extends BasePage {
     final String PASSWORD = System.getenv("PASSWORD");
 
     @FindBy(id = "edit-issue")
-    WebElement editButton;
+    public WebElement editButton;
 
     @FindBy(id = "summary")
-    WebElement editSummaryField;
+    public WebElement editSummaryField;
 
     @FindBy(id = "edit-issue-submit")
-    WebElement editSubmitButton;
+    public WebElement editSubmitButton;
 
     @FindBy(id = "description")
-    WebElement editDescriptionField;
+    public WebElement editDescriptionField;
 
     @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div")
-    WebElement successfulEditMessage;
+    public WebElement successfulEditMessage;
 
     @FindBy(xpath = "//*[@id=\"description-wiki-edit\"]/nav/div/div/ul/li[2]/button")
-    WebElement descriptionSwitchToTextModeButton;
+    public WebElement descriptionSwitchToTextModeButton;
 
     @FindBy(xpath = "//*[@id=\"edit-issue-dialog\"]/footer/div/div/button")
-    WebElement cancelEditIssueButton;
+    public WebElement cancelEditIssueButton;
 
     @FindBy(id = "summary-val")
     public WebElement summaryValue;

@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features.KDT;
+package com.codecool.testautomation.pages.KDT;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;

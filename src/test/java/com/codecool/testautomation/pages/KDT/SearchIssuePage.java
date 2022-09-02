@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features.KDT;
+package com.codecool.testautomation.pages.KDT;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

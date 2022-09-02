@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features.KDT;
+package com.codecool.testautomation.pages.KDT;
 
 import com.codecool.testautomation.utils.Utils;
 import org.openqa.selenium.WebElement;
@@ -36,8 +36,8 @@ public class LoginPage extends BasePage{
     @FindBy(linkText = "Log in again.")
     public WebElement logInAgainLink;
 
-    final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
-    final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
+    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
+    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
 
     public LoginPage() {}
 

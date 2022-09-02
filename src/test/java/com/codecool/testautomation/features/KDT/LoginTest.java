@@ -1,5 +1,7 @@
 package com.codecool.testautomation.features.KDT;
 
+import com.codecool.testautomation.pages.KDT.LoginPage;
+import com.codecool.testautomation.pages.KDT.ProfilePage;
 import com.codecool.testautomation.utils.Utils;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;

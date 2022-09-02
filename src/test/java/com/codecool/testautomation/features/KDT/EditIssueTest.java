@@ -1,5 +1,8 @@
 package com.codecool.testautomation.features.KDT;
 
+import com.codecool.testautomation.pages.KDT.EditIssuePage;
+import com.codecool.testautomation.pages.KDT.IssuePage;
+import com.codecool.testautomation.pages.KDT.LoginPage;
 import org.junit.jupiter.api.*;
 
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;

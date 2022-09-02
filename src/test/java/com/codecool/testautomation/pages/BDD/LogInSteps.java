@@ -1,25 +1,15 @@
-package com.codecool.testautomation.features.BDD;
+package com.codecool.testautomation.pages.BDD;
 
-import com.codecool.testautomation.features.KDT.BasePage;
+import com.codecool.testautomation.pages.KDT.BasePage;
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.time.Duration;
 
 public class LogInSteps extends BasePage {
     final String BASE_URL = "https://jira-auto.codecool.metastage.net";

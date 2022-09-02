@@ -1,4 +1,4 @@
-package com.codecool.testautomation.features.KDT;
+package com.codecool.testautomation.pages.KDT;
 
 import com.codecool.testautomation.utils.DriverSingleton;
 import com.codecool.testautomation.utils.Utils;

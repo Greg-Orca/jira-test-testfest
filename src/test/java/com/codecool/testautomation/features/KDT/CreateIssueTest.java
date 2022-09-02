@@ -1,5 +1,9 @@
 package com.codecool.testautomation.features.KDT;
 
+import com.codecool.testautomation.pages.KDT.CreateIssuePage;
+import com.codecool.testautomation.pages.KDT.IssuePage;
+import com.codecool.testautomation.pages.KDT.LoginPage;
+import com.codecool.testautomation.pages.KDT.SearchIssuePage;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
