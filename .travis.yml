@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 sudo: true
 language: java
 os: linux
@@ -17,3 +17,8 @@ cache:
     - $HOME/.gradle/wrapper/
 script:
    - export JAVA_HOME=$HOME/openjdk18
+   
+addons:
+  apt:
+    packages:
+      - ant
