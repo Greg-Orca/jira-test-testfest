@@ -5,7 +5,6 @@ os: linux
 install: ant deps
 jdk:
 - openjdk18
-dist: trusty
 before_install:
   - echo $(ant -version)
   - chmod +x mvnw
@@ -16,3 +15,5 @@ cache:
   directories:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+script:
+   - export JAVA_HOME=$HOME/openjdk18
