@@ -2,11 +2,9 @@ dist: xenial
 sudo: true
 language: java
 os: linux
-install: ant deps
 jdk:
 - openjdk18
 before_install:
-  - echo $(ant -version)
   - chmod +x mvnw
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -17,8 +15,3 @@ cache:
     - $HOME/.gradle/wrapper/
 script:
    - export JAVA_HOME=$HOME/openjdk18
-   
-addons:
-  apt:
-    packages:
-      - ant
