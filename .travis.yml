@@ -1,4 +1,6 @@
 dist: trusty
 language: java
+os: osx
 jdk:
 - openjdk11
+dist: trusty
