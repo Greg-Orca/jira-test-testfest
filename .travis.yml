@@ -7,6 +7,7 @@ jdk:
 - openjdk11
 dist: trusty
 before_install:
+  - echo $(ant -version)
   - chmod +x mvnw
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
