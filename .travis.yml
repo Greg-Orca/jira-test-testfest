@@ -10,7 +10,8 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-# before_install:
+before_install:
+    - mvn
 #   - chmod +x mvnw
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
