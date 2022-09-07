@@ -1,4 +1,3 @@
-[![Travis]([https://travis-ci.org/christian-draeger/basic-selenium-project](https://app.travis-ci.com/Greg-Orca/Jira-Testing-Greg-Orca.svg?branch=main))
 [![Build Status](https://app.travis-ci.com/Greg-Orca/Jira-Testing-Greg-Orca.svg?branch=main)](https://app.travis-ci.com/Greg-Orca/Jira-Testing-Greg-Orca)
 
 
