@@ -11,8 +11,7 @@ addons:
     packages:
       - google-chrome-stable
 before_install:
-    - mvn
-#   - chmod +x mvnw
+  - chmod +x mvnw
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
