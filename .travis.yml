@@ -15,13 +15,13 @@ addons:
   chrome: stable
 
 jdk:
-  - oraclejdk8
+  - oraclejdk18
 script:
-  - jdk_switcher use openjdk10
-  - # do stuff with OpenJDK 10
+  - jdk_switcher use openjdk18
+
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
   - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
-  - export JAVA_HOME=$HOME/openjdk11
+  - export JAVA_HOME=$HOME/openjdk18
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
 
 install:
