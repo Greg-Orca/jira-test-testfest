@@ -4,6 +4,12 @@ language: java
 os: linux
 jdk:
 - openjdk18
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 # before_install:
 #   - chmod +x mvnw
 before_cache:
