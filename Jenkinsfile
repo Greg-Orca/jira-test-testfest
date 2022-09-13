@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    properties([
+    options([
         parameters([
             password(name: 'PASSWORD', description: 'Encryption key')
         ])
@@ -9,11 +9,15 @@ pipeline {
 
     stages {
         stage("build"){
-            sh(script: "mvn -version")
-            sh(script: "mvn compile")
+            steps{
+                sh(script: "mvn -version")
+                sh(script: "mvn compile")
+            }
         }
         stage("run"){
-            sh(script: "mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL='https://jira-auto.codecool.metastage.net'")
+            steps{
+                sh(script: "mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL='https://jira-auto.codecool.metastage.net'")
+            }
         }
     }
 }
