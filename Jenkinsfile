@@ -13,7 +13,7 @@ pipeline {
             mvn compile
         }
         stage("run"){
-            mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL='https://jira-auto.codecool.metastage.net'
+            sh(script: "mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL='https://jira-auto.codecool.metastage.net'")
         }
     }
 }
