@@ -18,6 +18,7 @@ public abstract class BasePage {
     private static String BASE_URL = Utils.getEnvironmentVariable("BASE_URL");
 
     public BasePage(){
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = DriverSingleton.getDriver();
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, WAIT_DURATION);
