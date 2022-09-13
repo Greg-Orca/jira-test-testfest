@@ -13,21 +13,25 @@ import java.net.URL;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverSingleton {
-    private static RemoteWebDriver driver = null;
+    private static WebDriver driver = null;
 
     private DriverSingleton() {
     }
 
-    public static RemoteWebDriver getDriver() throws MalformedURLException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions chromeOptions = new ChromeOptions();
+    public static WebDriver getDriver() throws MalformedURLException {
+//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
+
         DesiredCapabilities capability = new DesiredCapabilities();
-        chromeOptions.setCapability("browserVersion", "96.0");
-        chromeOptions.setCapability("platformName", "Linux");
-        capability.setBrowserName("chrome");
+
+//        capability.setBrowserName("chrome");
+        capability.setBrowserName("firefox");
+
         capability.setPlatform(Platform.LINUX);
+
+
         driver = new RemoteWebDriver(
-                new URL("http://172.21.0.6:5555"), chromeOptions);
+                new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
 
 //        String browser = Utils.getEnvironmentVariable("BROWSER");
 //        if (driver == null) {
@@ -37,6 +41,7 @@ public class DriverSingleton {
 //                case "FIREFOX" -> driver = new FirefoxDriver();
 //            }
 //        }
+
         return driver;
     }
 

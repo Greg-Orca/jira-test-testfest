@@ -14,9 +14,9 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 
 public abstract class BasePage {
-    public RemoteWebDriver driver;
+    public WebDriver driver;
     public WebDriverWait wait;
-    private final Duration WAIT_DURATION = Duration.ofSeconds(3);
+    private final Duration WAIT_DURATION = Duration.ofSeconds(10);
     private static String BASE_URL = Utils.getEnvironmentVariable("BASE_URL");
 
     public BasePage() throws MalformedURLException {
