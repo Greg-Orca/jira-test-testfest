@@ -1,5 +1,6 @@
 package com.codecool.testautomation.pages.KDT;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -63,5 +64,10 @@ public class EditIssuePage extends BasePage {
     public void cancelEdit(){
         cancelEditIssueButton.click();
         driver.switchTo().alert().accept();
+    }
+
+    public void getResult() {
+        Cookie cookie = new Cookie("zaleniumTestPassed", "true");
+        driver.manage().addCookie(cookie);
     }
 }

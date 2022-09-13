@@ -33,7 +33,7 @@ public class LoginTest {
     }
 
     @Test
-    public void loginSuccessful(){
+    public void loginSuccessful() {
         String username = loginPage.USER_NAME;
         String password = loginPage.PASSWORD;
         loginPage.fillUsernameAndPassword(username, password);

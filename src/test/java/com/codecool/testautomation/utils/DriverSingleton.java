@@ -1,6 +1,7 @@
 package com.codecool.testautomation.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverSingleton {
@@ -41,7 +44,7 @@ public class DriverSingleton {
 //                case "FIREFOX" -> driver = new FirefoxDriver();
 //            }
 //        }
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
 

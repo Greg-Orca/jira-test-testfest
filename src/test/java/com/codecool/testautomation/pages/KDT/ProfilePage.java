@@ -6,7 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import java.net.MalformedURLException;
 
 public class ProfilePage extends BasePage{
-    @FindBy(id = "up-d-username")
+//    @FindBy(id = "up-d-username")
+//    public WebElement profileUsername;
+    @FindBy(xpath = "//*[@id='up-d-username']")
     public WebElement profileUsername;
 
     public ProfilePage() throws MalformedURLException {
@@ -14,6 +16,7 @@ public class ProfilePage extends BasePage{
     }
 
     public String getProfileUsername() {
+
         waitUntilElementLoaded(profileUsername);
         return profileUsername.getText();
     }

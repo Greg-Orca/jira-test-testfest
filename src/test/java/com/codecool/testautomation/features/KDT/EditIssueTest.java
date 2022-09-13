@@ -37,6 +37,7 @@ public class EditIssueTest {
         editIssuePage.editSummary(SUMMARY);
         editIssuePage.editDescription(description);
         editIssuePage.submitEdit();
+        editIssuePage.getResult();
     }
 
     @AfterAll
