@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage("build"){
             steps{
-                sh(script: "mvn -version")
                 sh(script: "mvn compile")
             }
         }
