@@ -9,8 +9,8 @@ pipeline {
 
     stages {
         stage("build"){
-            mvn -version
-            mvn compile
+            sh(script: "mvn -version")
+            sh(script: "mvn compile")
         }
         stage("run"){
             sh(script: "mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL='https://jira-auto.codecool.metastage.net'")
