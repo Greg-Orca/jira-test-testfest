@@ -8,6 +8,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import java.net.MalformedURLException;
+
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
 public class CreateIssueTest {
@@ -20,7 +22,7 @@ public class CreateIssueTest {
 
 
     @BeforeEach
-    public void SetUp(){
+    public void SetUp() throws MalformedURLException {
         createIssuePage = new CreateIssuePage();
         issuePage = new IssuePage();
         searchIssuePage = new SearchIssuePage();

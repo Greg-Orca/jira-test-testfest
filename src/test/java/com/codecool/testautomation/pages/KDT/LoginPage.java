@@ -4,6 +4,8 @@ import com.codecool.testautomation.utils.Utils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.net.MalformedURLException;
+
 public class LoginPage extends BasePage{
 
     @FindBy(id = "login-form-username")
@@ -39,7 +41,9 @@ public class LoginPage extends BasePage{
     public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
     public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
 
-    public LoginPage() {}
+    public LoginPage() throws MalformedURLException {
+        super();
+    }
 
     public void logInSuccessful(){
         openUrl("/login.jsp");

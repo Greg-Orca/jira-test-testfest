@@ -3,6 +3,8 @@ package com.codecool.testautomation.pages.KDT;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.net.MalformedURLException;
+
 public class EditIssuePage extends BasePage {
 
     @FindBy(id = "edit-issue")
@@ -29,7 +31,8 @@ public class EditIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div/button")
     public WebElement closeSuccessfulMessage;
 
-    public EditIssuePage() {
+    public EditIssuePage() throws MalformedURLException {
+        super();
     }
 
     public void openEditIssue(){

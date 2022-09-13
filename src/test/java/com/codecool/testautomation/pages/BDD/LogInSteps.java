@@ -11,6 +11,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.net.MalformedURLException;
+
 public class LogInSteps extends BasePage {
     final String BASE_URL = "https://jira-auto.codecool.metastage.net";
     final String USER_NAME = System.getenv("USER_NAME");
@@ -36,6 +38,9 @@ public class LogInSteps extends BasePage {
 
     @FindBy(id = "up-d-username")
     public WebElement profileUsername;
+
+    public LogInSteps() throws MalformedURLException {
+    }
 
 
     @Given("user is on login page")

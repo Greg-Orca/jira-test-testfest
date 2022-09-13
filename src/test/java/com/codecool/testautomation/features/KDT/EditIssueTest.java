@@ -5,6 +5,8 @@ import com.codecool.testautomation.pages.KDT.IssuePage;
 import com.codecool.testautomation.pages.KDT.LoginPage;
 import org.junit.jupiter.api.*;
 
+import java.net.MalformedURLException;
+
 import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 
 public class EditIssueTest {
@@ -16,7 +18,7 @@ public class EditIssueTest {
     private final String DESCRIPTION = "new description";
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
         editIssuePage = new EditIssuePage();
         issuePage = new IssuePage();

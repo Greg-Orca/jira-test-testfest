@@ -3,6 +3,8 @@ package com.codecool.testautomation.pages.KDT;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.net.MalformedURLException;
+
 public class BrowseProjectPage extends BasePage {
     @FindBy(linkText = "Main Testing Project")
     public WebElement mtpLink;
@@ -19,7 +21,8 @@ public class BrowseProjectPage extends BasePage {
     @FindBy(linkText = "COALA project")
     public WebElement coalaProject;
 
-    public BrowseProjectPage() {
+    public BrowseProjectPage() throws MalformedURLException {
+        super();
     }
 
     public void findProject(String project){

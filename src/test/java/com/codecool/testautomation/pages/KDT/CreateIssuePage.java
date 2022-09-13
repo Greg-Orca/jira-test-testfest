@@ -4,6 +4,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.net.MalformedURLException;
+
 public class CreateIssuePage extends BasePage {
 
     @FindBy(linkText = "Create")
@@ -33,7 +35,8 @@ public class CreateIssuePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"create-issue-dialog\"]/header/h2")
     public WebElement issueTitle;
 
-    public CreateIssuePage() {
+    public CreateIssuePage() throws MalformedURLException {
+        super();
     }
 
     public void navigateCreate(){

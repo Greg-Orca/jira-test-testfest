@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.net.MalformedURLException;
+
 public class IssuePage extends BasePage{
 
     @FindBy(id = "summary-val")
@@ -48,7 +50,8 @@ public class IssuePage extends BasePage{
     @FindBy(id = "description-val")
     public WebElement descriptionValue;
 
-    public IssuePage() {
+    public IssuePage() throws MalformedURLException {
+        super();
     }
 
     public String getSummaryValue(){

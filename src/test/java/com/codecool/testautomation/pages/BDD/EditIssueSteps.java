@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.net.MalformedURLException;
+
 public class EditIssueSteps extends BasePage {
     final String BASE_URL = "https://jira-auto.codecool.metastage.net";
 
@@ -36,6 +38,8 @@ public class EditIssueSteps extends BasePage {
     @FindBy(id = "summary-val")
     public WebElement summaryValue;
 
+    public EditIssueSteps() throws MalformedURLException {
+    }
 
 
     @When("user edit an issue summary to {string}")
