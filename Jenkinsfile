@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-        parameters{
+        parameters {
             password(name: 'PASSWORD', description: 'Encryption key')
         }
 
