@@ -26,25 +26,21 @@ public class DriverSingleton {
         String PASSWORD = System.getProperty("PASSWORD");
 
         if (driver == null) {
+            DesiredCapabilities capability = new DesiredCapabilities();
             String nodeURL = "https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub";
-            ChromeOptions chromeOptions = new ChromeOptions();
-            FirefoxOptions firefoxOptions = new FirefoxOptions();
+//            ChromeOptions chromeOptions = new ChromeOptions();
+//            FirefoxOptions firefoxOptions = new FirefoxOptions();
             if ("firefox".equals(System.getProperty("BROWSER"))) {
-                driver = new RemoteWebDriver(new URL(nodeURL), firefoxOptions);
+                WebDriverManager.firefoxdriver().setup();
+                capability.setBrowserName("firefox");
+                driver = new RemoteWebDriver(new URL(nodeURL), capability);
             } else {
-                driver = new RemoteWebDriver(new URL(nodeURL), chromeOptions);
+                WebDriverManager.chromedriver().setup();
+                capability.setBrowserName("chrome");
+                driver = new RemoteWebDriver(new URL(nodeURL), capability);
             }
+            capability.setPlatform(Platform.LINUX);
         }
-//            WebDriverManager.chromedriver().setup();
-        //        WebDriverManager.firefoxdriver().setup();
-
-        DesiredCapabilities capability = new DesiredCapabilities();
-
-//            capability.setBrowserName("chrome");
-        //        capability.setBrowserName("firefox");
-
-        capability.setPlatform(Platform.LINUX);
-
 
 //            driver = new RemoteWebDriver(
 //                    new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
