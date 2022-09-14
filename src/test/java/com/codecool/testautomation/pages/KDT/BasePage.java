@@ -45,6 +45,7 @@ public abstract class BasePage {
     }
 
     public void quitD(){
+        driver.close();
         driver.quit();
         driver=null;
     }
