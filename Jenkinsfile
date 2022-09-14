@@ -11,25 +11,24 @@ pipeline {
             }
         }
         stage("run tests"){
-            steps{
-                parallel{
-                    stage('Test On Firefox') {
-                        step {
-                            sh(script: "mvn clean test -DPASSWORD=$PASSWORD -DUSER_NAME=$USER_NAME -DBASE_URL=$BASE_URL -DBROWSER='firefox'")
-                        }
+            parallel{
+                stage('Test On Firefox') {
+                    step {
+                        sh(script: "mvn clean test -DPASSWORD=$PASSWORD -DUSER_NAME=$USER_NAME -DBASE_URL=$BASE_URL -DBROWSER='firefox'")
                     }
-                    stage('Test on Chrome') {
-                        step{
-                            sh(script: "mvn clean test -DPASSWORD=$PASSWORD -DUSER_NAME=$USER_NAME -DBASE_URL=$BASE_URL -DBROWSER='chrome'")
-                        }
+                }
+                stage('Test on Chrome') {
+                    step{
+                        sh(script: "mvn clean test -DPASSWORD=$PASSWORD -DUSER_NAME=$USER_NAME -DBASE_URL=$BASE_URL -DBROWSER='chrome'")
                     }
                 }
             }
-            post{
-                always {
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                }
+        }
+        post{
+            always {
+                junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
     }
 }
+
