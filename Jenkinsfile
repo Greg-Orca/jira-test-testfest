@@ -10,7 +10,7 @@ pipeline {
         }
         stage("run tests"){
             steps{
-                sh './gradlew check'
+//                 sh './gradlew check'
                 sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
             }
             post {
