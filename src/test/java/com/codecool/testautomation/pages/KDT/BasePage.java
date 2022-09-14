@@ -18,7 +18,7 @@ public abstract class BasePage {
     public WebDriverWait wait;
     private final Duration WAIT_DURATION = Duration.ofSeconds(3);
 //    private static String BASE_URL = Utils.getEnvironmentVariable("BASE_URL");
-    private static String BASE_URL = System.getenv("BASE_URL");
+    private static String BASE_URL = "https://jira-auto.codecool.metastage.net";
 
     public BasePage() throws MalformedURLException {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");

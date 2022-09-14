@@ -10,7 +10,7 @@ pipeline {
         }
         stage("run tests"){
             steps{
-                sh(script: 'mvn -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=//jira-auto.codecool.metastage.net clean test')
+                sh(script: 'mvn test -DUSERNAME=$username -DPASSWORD=$password -DBASE_URL=$baseurl')
             }
         }
     }
