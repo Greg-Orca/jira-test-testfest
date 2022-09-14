@@ -33,7 +33,6 @@ public class EditIssuePage extends BasePage {
     public WebElement closeSuccessfulMessage;
 
     public EditIssuePage() throws MalformedURLException {
-        super();
     }
 
     public void openEditIssue(){

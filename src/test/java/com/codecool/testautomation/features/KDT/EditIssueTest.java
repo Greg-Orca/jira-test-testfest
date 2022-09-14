@@ -42,7 +42,7 @@ public class EditIssueTest {
 
     @AfterAll
     public static void tearDown(){
-        editIssuePage.quitD();
+        quitDriver();
     }
 
     @Test

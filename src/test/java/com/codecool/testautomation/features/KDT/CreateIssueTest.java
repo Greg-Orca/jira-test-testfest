@@ -32,7 +32,7 @@ public class CreateIssueTest {
 
     @AfterEach
     public void tearDown(){
-        issuePage.quitD();
+        quitDriver();
     }
 
 

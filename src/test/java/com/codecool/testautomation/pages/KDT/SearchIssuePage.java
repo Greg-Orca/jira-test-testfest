@@ -11,7 +11,6 @@ public class SearchIssuePage extends BasePage {
     public WebElement noIssueFoundMessage;
 
     public SearchIssuePage() throws MalformedURLException {
-        super();
     }
 
     public boolean noIssueFoundMessageIsPresent(){

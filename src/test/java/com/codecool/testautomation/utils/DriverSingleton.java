@@ -22,20 +22,23 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() throws MalformedURLException {
-//        WebDriverManager.chromedriver().setup();
-        WebDriverManager.firefoxdriver().setup();
+        if (driver == null) {
+//            WebDriverManager.chromedriver().setup();
+    //        WebDriverManager.firefoxdriver().setup();
 
-        DesiredCapabilities capability = new DesiredCapabilities();
+            DesiredCapabilities capability = new DesiredCapabilities();
 
-//        capability.setBrowserName("chrome");
-        capability.setBrowserName("firefox");
+//            capability.setBrowserName("chrome");
+    //        capability.setBrowserName("firefox");
 
-        capability.setPlatform(Platform.LINUX);
+            capability.setPlatform(Platform.LINUX);
 
 
-        driver = new RemoteWebDriver(
-                new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
+            driver = new RemoteWebDriver(
+                    new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
 
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        }
 //        String browser = Utils.getEnvironmentVariable("BROWSER");
 //        if (driver == null) {
 //            switch (browser) {
@@ -44,12 +47,11 @@ public class DriverSingleton {
 //                case "FIREFOX" -> driver = new FirefoxDriver();
 //            }
 //        }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
 
     public static void quitDriver(){
-        driver.quit();
-        driver = null;
+            driver.quit();
+            driver = null;
     }
 }

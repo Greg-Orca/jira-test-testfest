@@ -22,7 +22,6 @@ public class BrowseProjectPage extends BasePage {
     public WebElement coalaProject;
 
     public BrowseProjectPage() throws MalformedURLException {
-        super();
     }
 
     public void findProject(String project){

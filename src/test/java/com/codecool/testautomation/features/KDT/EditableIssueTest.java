@@ -26,7 +26,7 @@ public class EditableIssueTest {
 
     @AfterAll
     public static void tearDown() {
-        editIssuePage.quitD();
+        quitDriver();
     }
 
     @ParameterizedTest

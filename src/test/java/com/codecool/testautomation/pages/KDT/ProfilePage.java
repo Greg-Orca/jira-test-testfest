@@ -12,7 +12,6 @@ public class ProfilePage extends BasePage{
     public WebElement profileUsername;
 
     public ProfilePage() throws MalformedURLException {
-        super();
     }
 
     public String getProfileUsername() {

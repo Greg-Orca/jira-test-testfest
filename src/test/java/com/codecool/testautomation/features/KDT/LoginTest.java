@@ -19,7 +19,7 @@ public class LoginTest {
     @BeforeAll
     public static void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
-        profilePage = new ProfilePage();
+//        profilePage = new ProfilePage();
     }
 
     @BeforeEach
@@ -29,7 +29,7 @@ public class LoginTest {
 
     @AfterAll
     public static void tearDown(){
-        loginPage.quitD();
+        quitDriver();
     }
 
     @Test
@@ -39,21 +39,21 @@ public class LoginTest {
         loginPage.fillUsernameAndPassword(username, password);
         loginPage.logIn();
         loginPage.navigateProfile();
-        Assertions.assertEquals(username,profilePage.getProfileUsername());
+        Assertions.assertEquals(username,loginPage.getProfileUsername());
     }
 
-//    @ParameterizedTest
-//    @CsvFileSource(resources = FAIL_TEST_DATA_SOURCE, numLinesToSkip = 1)
-//    void loginUnsuccessful(String username, String password, String expected){
-//        String passwordNonNull = Utils.nullToEmptyString(password);
-//        String usernameNonNull = Utils.nullToEmptyString(username);
-//        System.out.println(username);
-//        loginPage.fillUsernameAndPassword(usernameNonNull,passwordNonNull);
-//        loginPage.logIn();
-//        String actual = loginPage.logInErrorMessage.getText();
-//        Assertions.assertEquals(expected, actual);
-//        //restore user token, avoid captcha
-//        loginPage.logInSuccessful();
-//        loginPage.logOutSuccessful();
-//    }
+    @ParameterizedTest
+    @CsvFileSource(resources = FAIL_TEST_DATA_SOURCE, numLinesToSkip = 1)
+    void loginUnsuccessful(String username, String password, String expected){
+        String passwordNonNull = Utils.nullToEmptyString(password);
+        String usernameNonNull = Utils.nullToEmptyString(username);
+        System.out.println(username);
+        loginPage.fillUsernameAndPassword(usernameNonNull,passwordNonNull);
+        loginPage.logIn();
+        String actual = loginPage.logInErrorMessage.getText();
+        Assertions.assertEquals(expected, actual);
+        //restore user token, avoid captcha
+        loginPage.logInSuccessful();
+        loginPage.logOutSuccessful();
+    }
 }

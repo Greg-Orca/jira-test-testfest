@@ -27,7 +27,7 @@ public class BrowseProjectTest {
 
     @AfterAll
     public static void tearDown(){
-        loginPage.quitD();
+        quitDriver();
     }
 
     @Test

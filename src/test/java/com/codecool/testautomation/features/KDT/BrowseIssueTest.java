@@ -20,14 +20,14 @@ public class BrowseIssueTest {
 
     @BeforeAll
     public static void setUp() throws MalformedURLException {
-        issuePage = new IssuePage();
         loginPage = new LoginPage();
+        issuePage = new IssuePage();
         loginPage.logInSuccessful();
     }
 
     @AfterAll
     public static void tearDown(){
-        issuePage.quitD();
+        quitDriver();
     }
 
     @Test
