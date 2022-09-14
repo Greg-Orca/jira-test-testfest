@@ -28,7 +28,7 @@ public class LoginTest {
     }
 
     @AfterAll
-    public static void tearDown(){
+    public void tearDown(){
         quitDriver();
     }
 

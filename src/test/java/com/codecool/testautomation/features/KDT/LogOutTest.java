@@ -22,7 +22,7 @@ public class LogOutTest {
     }
 
     @AfterAll
-    public static void tearDown(){
+    public void tearDown(){
         quitDriver();
     }
 
