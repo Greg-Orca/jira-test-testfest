@@ -12,10 +12,10 @@ pipeline {
             steps{
                 sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
         }
-        post {
-            always{
-                junit '*/target/surefire-reports/TEST-.xml'
-            }
+    }
+    post {
+        always{
+            junit '*/target/surefire-reports/TEST-.xml'
         }
     }
 }
