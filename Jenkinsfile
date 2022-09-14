@@ -10,7 +10,7 @@ pipeline {
         }
         stage("run tests"){
             steps{
-                sh(script: 'chmod 755 gradlew')
+                sh(script: 'chmod 755 ./gradlew')
                 sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
             }
         }
