@@ -20,7 +20,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: "mvn clean test -DUSERNAME=${USER_NAME} -DPASSWORD=${PASSWORD} -DBASE_URL=${BASE_URL}")
+                sh(script: "mvn clean test -DUSERNAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL")
             }
             post {
                 always {
