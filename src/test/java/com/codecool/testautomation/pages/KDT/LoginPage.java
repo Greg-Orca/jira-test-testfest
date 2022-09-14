@@ -41,10 +41,10 @@ public class LoginPage extends BasePage{
     @FindBy(id = "up-d-username")
     public WebElement profileUsername;
 
-//    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
-//    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
-    public final String USER_NAME = "automation24";
-    public final String PASSWORD = "CCAutoTest19.";
+    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
+    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
+//    public final String USER_NAME = "automation24";
+//    public final String PASSWORD = "CCAutoTest19.";
 
     public LoginPage() throws MalformedURLException {
     }

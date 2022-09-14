@@ -3,6 +3,8 @@ pipeline {
 
         parameters {
             password(name: 'PASSWORD', description: 'Encryption key')
+            string(name: 'USER_NAME')
+            string(name: 'BASE_URL')
         }
 
     stages {
@@ -13,7 +15,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: "mvn clean test -DUSERNAME=automation24 -DPASSWORD=$PASSWORD -DBASE_URL=https://jira-auto.codecool.metastage.net")
+                sh(script: "mvn clean test -DUSERNAME=${USER_NAME} -DPASSWORD=${PASSWORD} -DBASE_URL=${BASE_URL}")
             }
             post {
                 always {
