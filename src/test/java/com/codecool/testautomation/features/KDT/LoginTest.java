@@ -39,6 +39,7 @@ public class LoginTest {
         loginPage.fillUsernameAndPassword(username, password);
         loginPage.logIn();
         loginPage.navigateProfile();
+        loginPage.waitUntilElementLoaded(loginPage.profileUsername);
         Assertions.assertEquals(username,profilePage.getProfileUsername());
     }
 
