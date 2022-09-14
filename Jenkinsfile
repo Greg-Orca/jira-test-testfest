@@ -13,7 +13,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                mvn -DPASSWORD=${PASSWORD} -DUSER_NAME=${USER_NAME} -DBASE_URL=${BASE_URL}
+                sh(script: "mvn -DPASSWORD=${PASSWORD} -DUSER_NAME=${USER_NAME} -DBASE_URL=${BASE_URL}")
             }
             post
                 always {
