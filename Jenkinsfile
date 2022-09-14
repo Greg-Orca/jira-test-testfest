@@ -5,7 +5,7 @@ pipeline {
         stage("build"){
             steps{
                 sh(script: "jenkins-plugin-cli --plugins test-results-analyzer:0.3.5")
-                sh(script "sdk install gradle 7.5.1")
+                sh(script "install gradle 7.5.1")
                 sh(script: "mvn -version")
                 sh(script: "mvn compile")
             }
