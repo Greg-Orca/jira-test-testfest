@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage("build"){
             steps{
-            sh(script: "jenkins-plugin-cli --plugins test-results-analyzer:0.3.5")
                 sh(script: "mvn compile")
             }
         }
