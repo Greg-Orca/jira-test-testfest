@@ -6,6 +6,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -23,23 +24,33 @@ public class DriverSingleton {
 
     public static WebDriver getDriver() throws MalformedURLException {
         String PASSWORD = System.getProperty("PASSWORD");
-        if (driver == null) {
-//            WebDriverManager.chromedriver().setup();
-    //        WebDriverManager.firefoxdriver().setup();
 
-            DesiredCapabilities capability = new DesiredCapabilities();
+        if (driver == null) {
+            String nodeURL = "https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub";
+            ChromeOptions chromeOptions = new ChromeOptions();
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            if ("firefox".equals(System.getProperty("BROWSER"))) {
+                driver = new RemoteWebDriver(new URL(nodeURL), firefoxOptions);
+            } else {
+                driver = new RemoteWebDriver(new URL(nodeURL), chromeOptions);
+            }
+        }
+//            WebDriverManager.chromedriver().setup();
+        //        WebDriverManager.firefoxdriver().setup();
+
+        DesiredCapabilities capability = new DesiredCapabilities();
 
 //            capability.setBrowserName("chrome");
-    //        capability.setBrowserName("firefox");
+        //        capability.setBrowserName("firefox");
 
-            capability.setPlatform(Platform.LINUX);
+        capability.setPlatform(Platform.LINUX);
 
 
-            driver = new RemoteWebDriver(
-                    new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
+//            driver = new RemoteWebDriver(
+//                    new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+
 //        String browser = Utils.getEnvironmentVariable("BROWSER");
 //        if (driver == null) {
 //            switch (browser) {
@@ -47,7 +58,7 @@ public class DriverSingleton {
 //                case "SAFARI" -> driver = new SafariDriver();
 //                case "FIREFOX" -> driver = new FirefoxDriver();
 //            }
-//        }
+//
         return driver;
     }
 
