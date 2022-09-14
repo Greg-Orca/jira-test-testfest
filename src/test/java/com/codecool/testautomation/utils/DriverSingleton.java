@@ -41,14 +41,6 @@ public class DriverSingleton {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
-//        String browser = Utils.getEnvironmentVariable("BROWSER");
-//        if (driver == null) {
-//            switch (browser) {
-//                case "CHROME" -> driver = new ChromeDriver();
-//                case "SAFARI" -> driver = new SafariDriver();
-//                case "FIREFOX" -> driver = new FirefoxDriver();
-//            }
-//
         return driver;
     }
 
