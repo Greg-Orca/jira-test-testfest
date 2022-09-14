@@ -45,10 +45,10 @@ public class LoginTest {
     @ParameterizedTest
     @CsvFileSource(resources = FAIL_TEST_DATA_SOURCE, numLinesToSkip = 1)
     void loginUnsuccessful(String username, String password, String expected){
-        String passwordNonNull = Utils.nullToEmptyString(password);
-        String usernameNonNull = Utils.nullToEmptyString(username);
+//        String passwordNonNull = Utils.nullToEmptyString(password);
+//        String usernameNonNull = Utils.nullToEmptyString(username);
         System.out.println(username);
-        loginPage.fillUsernameAndPassword(usernameNonNull,passwordNonNull);
+        loginPage.fillUsernameAndPassword(username,password);
         loginPage.logIn();
         String actual = loginPage.logInErrorMessage.getText();
         Assertions.assertEquals(expected, actual);
