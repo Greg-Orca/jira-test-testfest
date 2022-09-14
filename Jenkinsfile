@@ -15,10 +15,11 @@ pipeline {
             steps{
                 sh(script: "mvn -DPASSWORD=${PASSWORD} -DUSER_NAME=${USER_NAME} -DBASE_URL=${BASE_URL}")
             }
-            post
+            post{
                 always {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
         }
     }
+}
