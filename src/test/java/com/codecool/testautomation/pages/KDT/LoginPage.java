@@ -90,7 +90,6 @@ public class LoginPage extends BasePage{
     }
 
     public String getProfileUsername() {
-
         waitUntilElementLoaded(profileUsername);
         return profileUsername.getText();
     }

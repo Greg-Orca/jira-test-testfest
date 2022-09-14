@@ -19,7 +19,7 @@ public class LoginTest {
     @BeforeAll
     public static void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
-//        profilePage = new ProfilePage();
+        profilePage = new ProfilePage();
     }
 
     @BeforeEach
@@ -39,7 +39,7 @@ public class LoginTest {
         loginPage.fillUsernameAndPassword(username, password);
         loginPage.logIn();
         loginPage.navigateProfile();
-        Assertions.assertEquals(username,loginPage.getProfileUsername());
+        Assertions.assertEquals(username,profilePage.getProfileUsername());
     }
 
 //    @ParameterizedTest
