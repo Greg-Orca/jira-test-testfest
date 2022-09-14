@@ -18,8 +18,8 @@ public class LogOutTest {
         profilePage = new ProfilePage();
     }
 
-    @AfterEach
-    public void tearDown(){
+    @AfterAll
+    public static void tearDown(){
         quitDriver();
     }
 

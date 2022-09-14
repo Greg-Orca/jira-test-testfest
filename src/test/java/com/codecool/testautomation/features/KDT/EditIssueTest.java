@@ -38,7 +38,6 @@ public class EditIssueTest {
         editIssuePage.editDescription(description);
         editIssuePage.submitEdit();
         editIssuePage.getResult();
-        quitDriver();
     }
 
     @AfterAll

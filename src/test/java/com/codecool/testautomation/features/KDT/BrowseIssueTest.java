@@ -22,8 +22,8 @@ public class BrowseIssueTest {
         loginPage.logInSuccessful();
     }
 
-    @AfterEach
-    public void tearDown(){
+    @AfterAll
+    public static void tearDown(){
         quitDriver();
     }
 
