@@ -4,16 +4,13 @@ pipeline {
     stages {
         stage("build"){
             steps{
-                sh(script: "export USERNAME=automation23")
-                sh(script: "export PASSWORD=$PASSWORD")
-                sh(script: "export BASE_URL=$baseurl")
                 sh(script: "mvn -version")
                 sh(script: "mvn compile")
             }
         }
         stage("run tests"){
             steps{
-                sh(script: 'mvn test ')
+                sh(script: 'mvn -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl test')
             }
         }
     }
