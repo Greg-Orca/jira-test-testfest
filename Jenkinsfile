@@ -4,20 +4,18 @@ pipeline {
     stages {
         stage("build"){
             steps{
-                sh(script: "mvn -version")
                 sh(script: "mvn compile")
             }
         }
-        stage("run tests"){
+        stage("run"){
             steps{
-                sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
+                sh(script: "mvn clean test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=https://jira-auto.codecool.metastage.net")
             }
-        }
-    }
-    post {
-        always{
-            junit testResults: '**/test-reports/*.xml', allowEmptyResults: true, skipPublishingChecks: true
-//             junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
+            post {
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+            }
         }
     }
 }
