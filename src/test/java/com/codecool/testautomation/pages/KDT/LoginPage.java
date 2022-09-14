@@ -43,8 +43,10 @@ public class LoginPage extends BasePage{
 
 //    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
 //    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
-    public final String USER_NAME = "automation24";
-    public final String PASSWORD = "CCAutoTest19.";
+//    public final String USER_NAME = "automation24";
+//    public final String PASSWORD = "CCAutoTest19.";
+    public final String USER_NAME = System.getProperty("USER_NAME");
+    public final String PASSWORD = System.getProperty("PASSWORD");
 
     public LoginPage() throws MalformedURLException {
     }

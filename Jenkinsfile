@@ -3,16 +3,9 @@ pipeline {
 
         parameters {
             password(name: 'PASSWORD', description: 'Encryption key')
-//             string(name: 'USER_NAME')
-//             string(name: 'BASE_URL')
         }
 
     stages {
-        stage("Env var"){
-            steps{
-                sh(script: "printenv")
-            }
-        }
         stage("build"){
             steps{
                 sh(script: "mvn compile")
@@ -20,7 +13,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: "mvn clean test -DPASSWORD=$PASSWORD")
+                sh(script: "mvn clean test -DPASSWORD=${PASSWORD} -DUSER_NAME=${USER_NAME} -DBASE_URL=${BASE_URL}"
             }
             post {
                 always {
