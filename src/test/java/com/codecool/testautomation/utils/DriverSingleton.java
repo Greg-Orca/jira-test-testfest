@@ -37,7 +37,7 @@ public class DriverSingleton {
             driver = new RemoteWebDriver(
                     new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         }
 //        String browser = Utils.getEnvironmentVariable("BROWSER");
 //        if (driver == null) {
