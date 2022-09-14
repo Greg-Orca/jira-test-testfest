@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-        parameters {
-            password(name: 'PASSWORD', description: 'Encryption key')
-        }
+       parameters {
+           password(name: 'PASSWORD', description: 'Encryption key')
+       }
 
     stages {
         stage("build"){
@@ -13,7 +13,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: "mvn clean test -DPASSWORD=${PASSWORD} -DUSER_NAME=${USER_NAME} -DBASE_URL=${BASE_URL}"
+                sh(script: "mvn clean test -DPASSWORD=${PASSWORD} -DUSER_NAME=${USER_NAME} -DBASE_URL=${BASE_URL}")
             }
             post {
                 always {
