@@ -22,7 +22,7 @@ public class BrowseProjectTest {
         loginPage.logInSuccessful();
     }
 
-    @AfterEach
+    @AfterAll
     public static void tearDown(){
         quitDriver();
     }

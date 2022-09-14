@@ -23,7 +23,7 @@ public class BrowseIssueTest {
     }
 
     @AfterEach
-    public static void tearDown(){
+    public void tearDown(){
         quitDriver();
     }
 
