@@ -9,7 +9,9 @@ pipeline {
 
     stages {
         stage("Env var"){
-            sh(script: "printenv")
+            steps{
+                sh(script: "printenv")
+            }
         }
         stage("build"){
             steps{
