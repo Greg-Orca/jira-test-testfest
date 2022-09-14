@@ -8,13 +8,14 @@ pipeline {
                 sh(script: "mvn compile")
             }
         }
-        stage("run"){
+        stage("run tests"){
             steps{
+                sh './gradlew check'
                 sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
             }
             post {
                 always{
-                     junit '*/target/surefire-reports/TEST-.xml'
+                     junit 'build/reports/**/*.xml'
                 }
             }
         }
