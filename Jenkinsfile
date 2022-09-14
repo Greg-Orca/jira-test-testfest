@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-//         parameters {
-//             password(name: 'PASSWORD', description: 'Encryption key')
-//         }
-
     stages {
         stage("build"){
             steps{
@@ -14,10 +10,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: 'export USERNAME=automation23')
-                sh(script: 'export PASSWORD=$PASSWORD')
-                sh(script: 'export BASE_URL=$baseurl')
-                sh(script: 'mvn test')
+                sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
             }
 //             post {
 //                 always{
