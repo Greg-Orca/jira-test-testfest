@@ -8,6 +8,9 @@ pipeline {
         }
 
     stages {
+        stage("Env var"){
+            sh(script: "printenv")
+        }
         stage("build"){
             steps{
                 sh(script: "mvn compile")
