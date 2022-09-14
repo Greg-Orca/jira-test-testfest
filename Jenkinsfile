@@ -4,15 +4,16 @@ pipeline {
     stages {
         stage("build"){
             steps{
-                sh(script: './gradlew build')
+                sh(script: "export USERNAME=automation23")
+                sh(script: "export PASSWORD=$PASSWORD")
+                sh(script: "export BASE_URL=$baseurl")
                 sh(script: "mvn -version")
                 sh(script: "mvn compile")
             }
         }
         stage("run tests"){
             steps{
-                sh(script: './gradlew check')
-                sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
+                sh(script: 'mvn test ')
             }
         }
     }
