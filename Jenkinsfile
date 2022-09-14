@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
        parameters {
            password(name: 'PASSWORD', description: 'Encryption key')
        }
@@ -11,7 +10,7 @@ pipeline {
                 sh(script: "mvn compile")
             }
         }
-        stages("run tests"){
+        stage("run tests"){
             steps{
                 parallel{
                     stage('Test On Firefox') {
