@@ -1,4 +1,3 @@
-def baseurl="https://jira-auto.codecool.metastage.net"
 pipeline {
     agent any
 
