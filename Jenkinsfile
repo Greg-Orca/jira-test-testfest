@@ -16,7 +16,7 @@ pipeline {
     }
     post {
         always{
-            junit '**/test-reports/*.xml', allowEmptyResults: true, skipPublishingChecks: true
+            junit testResults: '**/test-reports/*.xml', allowEmptyResults: true, skipPublishingChecks: true
 //             junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
         }
     }
