@@ -4,13 +4,14 @@ pipeline {
     stages {
         stage("build"){
             steps{
+                sdk install gradle 7.5.1
                 sh(script: "mvn -version")
                 sh(script: "mvn compile")
             }
         }
         stage("run tests"){
             steps{
-                sh(script: 'chmod 755 ./gradlew')
+                sh './gradlew check'
                 sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
             }
         }
