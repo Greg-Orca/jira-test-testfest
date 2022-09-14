@@ -22,6 +22,7 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() throws MalformedURLException {
+        String PASSWORD = System.getProperty("PASSWORD");
         if (driver == null) {
 //            WebDriverManager.chromedriver().setup();
     //        WebDriverManager.firefoxdriver().setup();
@@ -35,7 +36,7 @@ public class DriverSingleton {
 
 
             driver = new RemoteWebDriver(
-                    new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
+                    new URL("https://selenium:" + PASSWORD + "@seleniumhub.codecool.metastage.net/wd/hub"), capability);
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         }
