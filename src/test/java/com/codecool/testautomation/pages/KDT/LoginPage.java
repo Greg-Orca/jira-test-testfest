@@ -38,8 +38,10 @@ public class LoginPage extends BasePage{
     @FindBy(linkText = "Log in again.")
     public WebElement logInAgainLink;
 
-    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
-    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
+//    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
+//    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
+    public final String USER_NAME = "Automation23";
+    public final String PASSWORD = "CCAutoTest19.";
 
     public LoginPage() throws MalformedURLException {
         super();

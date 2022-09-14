@@ -14,7 +14,7 @@ import static com.codecool.testautomation.utils.DriverSingleton.quitDriver;
 public class LoginTest {
     static LoginPage loginPage;
     static ProfilePage profilePage;
-    private static final String FAIL_TEST_DATA_SOURCE = "/login_fail.csv";
+//    private static final String FAIL_TEST_DATA_SOURCE = "/login_fail.csv";
 
     @BeforeAll
     public static void setUp() throws MalformedURLException {
