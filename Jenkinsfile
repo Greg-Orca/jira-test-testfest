@@ -3,8 +3,8 @@ pipeline {
 
         parameters {
             password(name: 'PASSWORD', description: 'Encryption key')
-            string(name: 'USER_NAME')
-            string(name: 'BASE_URL')
+//             string(name: 'USER_NAME')
+//             string(name: 'BASE_URL')
         }
 
     stages {
@@ -20,7 +20,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: "mvn clean test -DUSERNAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL")
+                sh(script: "mvn clean test -DPASSWORD=$PASSWORD")
             }
             post {
                 always {
