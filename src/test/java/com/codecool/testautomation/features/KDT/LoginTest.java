@@ -27,7 +27,7 @@ public class LoginTest {
         loginPage.openUrl("/login.jsp");
     }
 
-    @AfterAll
+    @AfterEach
     public static void tearDown(){
         quitDriver();
     }

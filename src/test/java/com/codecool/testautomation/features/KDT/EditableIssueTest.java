@@ -3,6 +3,7 @@ package com.codecool.testautomation.features.KDT;
 import com.codecool.testautomation.pages.KDT.EditIssuePage;
 import com.codecool.testautomation.pages.KDT.LoginPage;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +25,7 @@ public class EditableIssueTest {
         loginPage.logInSuccessful();
     }
 
-    @AfterAll
+    @AfterEach
     public static void tearDown() {
         quitDriver();
     }

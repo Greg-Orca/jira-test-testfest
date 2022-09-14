@@ -2,10 +2,7 @@ package com.codecool.testautomation.features.KDT;
 
 import com.codecool.testautomation.pages.KDT.LoginPage;
 import com.codecool.testautomation.pages.KDT.ProfilePage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.net.MalformedURLException;
 
@@ -21,7 +18,7 @@ public class LogOutTest {
         profilePage = new ProfilePage();
     }
 
-    @AfterAll
+    @AfterEach
     public static void tearDown(){
         quitDriver();
     }

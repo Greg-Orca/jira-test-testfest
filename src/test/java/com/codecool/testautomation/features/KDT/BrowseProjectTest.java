@@ -2,10 +2,7 @@ package com.codecool.testautomation.features.KDT;
 
 import com.codecool.testautomation.pages.KDT.BrowseProjectPage;
 import com.codecool.testautomation.pages.KDT.LoginPage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -25,7 +22,7 @@ public class BrowseProjectTest {
         loginPage.logInSuccessful();
     }
 
-    @AfterAll
+    @AfterEach
     public static void tearDown(){
         quitDriver();
     }
