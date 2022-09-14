@@ -19,7 +19,7 @@ public class LoginTest {
     @BeforeAll
     public static void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
-        profilePage = new ProfilePage();
+//        profilePage = new ProfilePage();
     }
 
     @BeforeEach
@@ -27,8 +27,8 @@ public class LoginTest {
         loginPage.openUrl("/login.jsp");
     }
 
-    @AfterEach
-    public void tearDown(){
+    @AfterAll
+    public static void tearDown(){
         quitDriver();
     }
 

@@ -36,7 +36,6 @@ public class CreateIssuePage extends BasePage {
     public WebElement issueTitle;
 
     public CreateIssuePage() throws MalformedURLException {
-        super();
     }
 
     public void navigateCreate(){
@@ -96,4 +95,5 @@ public class CreateIssuePage extends BasePage {
         summaryField.sendKeys(summary);
         createIssueButton.click();
     }
+
 }

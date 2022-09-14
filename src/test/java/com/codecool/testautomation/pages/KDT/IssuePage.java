@@ -51,7 +51,7 @@ public class IssuePage extends BasePage{
     public WebElement descriptionValue;
 
     public IssuePage() throws MalformedURLException {
-        super();
+
     }
 
     public String getSummaryValue(){

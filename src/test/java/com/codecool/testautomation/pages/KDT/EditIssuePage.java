@@ -33,7 +33,6 @@ public class EditIssuePage extends BasePage {
     public WebElement closeSuccessfulMessage;
 
     public EditIssuePage() throws MalformedURLException {
-        super();
     }
 
     public void openEditIssue(){
@@ -70,4 +69,5 @@ public class EditIssuePage extends BasePage {
         Cookie cookie = new Cookie("zaleniumTestPassed", "true");
         driver.manage().addCookie(cookie);
     }
+
 }

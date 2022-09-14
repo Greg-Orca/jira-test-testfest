@@ -38,13 +38,15 @@ public class LoginPage extends BasePage{
     @FindBy(linkText = "Log in again.")
     public WebElement logInAgainLink;
 
+    @FindBy(id = "up-d-username")
+    public WebElement profileUsername;
+
 //    public final String USER_NAME = Utils.getEnvironmentVariable("USER_NAME");
 //    public final String PASSWORD = Utils.getEnvironmentVariable("PASSWORD");
-    public final String USER_NAME = "Automation23";
+    public final String USER_NAME = "automation23";
     public final String PASSWORD = "CCAutoTest19.";
 
     public LoginPage() throws MalformedURLException {
-        super();
     }
 
     public void logInSuccessful(){
@@ -85,5 +87,11 @@ public class LoginPage extends BasePage{
     public void navigateLoginAfterLogout(){
         waitUntilElementLoaded(logInAgainLink);
         logInAgainLink.click();
+    }
+
+    public String getProfileUsername() {
+
+        waitUntilElementLoaded(profileUsername);
+        return profileUsername.getText();
     }
 }

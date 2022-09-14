@@ -22,7 +22,6 @@ public class BrowseProjectPage extends BasePage {
     public WebElement coalaProject;
 
     public BrowseProjectPage() throws MalformedURLException {
-        super();
     }
 
     public void findProject(String project){
@@ -32,4 +31,5 @@ public class BrowseProjectPage extends BasePage {
     public boolean projectIsPresent(String expected){
         return expected.equals("TOUCAN project") || expected.equals("JETI project") || expected.equals("COALA project");
     }
+
 }
