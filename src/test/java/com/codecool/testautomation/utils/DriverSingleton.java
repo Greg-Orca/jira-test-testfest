@@ -22,13 +22,13 @@ public class DriverSingleton {
     }
 
     public static WebDriver getDriver() throws MalformedURLException {
-        WebDriverManager.chromedriver().setup();
-//        WebDriverManager.firefoxdriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
 
         DesiredCapabilities capability = new DesiredCapabilities();
 
-        capability.setBrowserName("chrome");
-//        capability.setBrowserName("firefox");
+//        capability.setBrowserName("chrome");
+        capability.setBrowserName("firefox");
 
         capability.setPlatform(Platform.LINUX);
 
