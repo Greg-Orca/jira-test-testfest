@@ -39,7 +39,7 @@ public class LoginTest {
         loginPage.fillUsernameAndPassword(username, password);
         loginPage.logIn();
         loginPage.navigateProfile();
-        Assertions.assertEquals(username,profilePage.getProfileUsername());
+        Assertions.assertEquals(username,loginPage.getProfileUsername());
     }
 
 //    @ParameterizedTest
