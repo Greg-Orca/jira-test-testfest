@@ -11,7 +11,7 @@ pipeline {
                 sh(script: "mvn compile")
             }
         }
-        stage("run tests"){
+        stages("run tests"){
             steps{
                 parallel{
                     stage('Test On Firefox') {
