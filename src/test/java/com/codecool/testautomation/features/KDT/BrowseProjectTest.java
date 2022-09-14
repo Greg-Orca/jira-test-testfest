@@ -37,12 +37,12 @@ public class BrowseProjectTest {
         Assertions.assertTrue(browseProjectPage.mtpLink.isDisplayed());
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = PROJECTS_SOURCES, numLinesToSkip = 1)
-    public void findProjects(String projectName, String exceptedResult){
-        browseProjectPage.openUrl("/secure/BrowseProjects.jspa");
-        browseProjectPage.findProject(projectName);
-        boolean isPresent = browseProjectPage.projectIsPresent(exceptedResult);
-        Assertions.assertTrue(isPresent);
-    }
+//    @ParameterizedTest
+//    @CsvFileSource(resources = PROJECTS_SOURCES, numLinesToSkip = 1)
+//    public void findProjects(String projectName, String exceptedResult){
+//        browseProjectPage.openUrl("/secure/BrowseProjects.jspa");
+//        browseProjectPage.findProject(projectName);
+//        boolean isPresent = browseProjectPage.projectIsPresent(exceptedResult);
+//        Assertions.assertTrue(isPresent);
+//    }
 }

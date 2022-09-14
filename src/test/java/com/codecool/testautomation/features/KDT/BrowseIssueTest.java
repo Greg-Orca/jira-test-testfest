@@ -39,11 +39,11 @@ public class BrowseIssueTest {
         Assertions.assertEquals(summary,result);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = ISSUES_SOURCES, numLinesToSkip = 1)
-    public void findIssues(String issueUrl,String expectedResult){
-        issuePage.openUrl(issueUrl);
-        String actualResult = issuePage.getIssueKeyVal();
-        Assertions.assertEquals(expectedResult,actualResult);
-    }
+//    @ParameterizedTest
+//    @CsvFileSource(resources = ISSUES_SOURCES, numLinesToSkip = 1)
+//    public void findIssues(String issueUrl,String expectedResult){
+//        issuePage.openUrl(issueUrl);
+//        String actualResult = issuePage.getIssueKeyVal();
+//        Assertions.assertEquals(expectedResult,actualResult);
+//    }
 }
