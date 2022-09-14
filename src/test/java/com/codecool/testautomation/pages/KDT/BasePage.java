@@ -43,4 +43,9 @@ public abstract class BasePage {
        waitUntilElementLoaded(webElement);
        return webElement.isDisplayed();
     }
+
+    public void quitD(){
+        driver.quit();
+        driver=null;
+    }
 }

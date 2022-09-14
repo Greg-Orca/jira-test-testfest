@@ -22,8 +22,8 @@ public class LogOutTest {
     }
 
     @AfterAll
-    public void tearDown(){
-        quitDriver();
+    public static void tearDown(){
+        loginPage.quitD();
     }
 
     @Test

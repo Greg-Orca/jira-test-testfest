@@ -28,8 +28,8 @@ public class LoginTest {
     }
 
     @AfterAll
-    public void tearDown(){
-        quitDriver();
+    public static void tearDown(){
+        loginPage.quitD();
     }
 
     @Test

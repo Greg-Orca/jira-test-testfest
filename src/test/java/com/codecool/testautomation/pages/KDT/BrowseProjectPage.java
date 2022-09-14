@@ -32,4 +32,5 @@ public class BrowseProjectPage extends BasePage {
     public boolean projectIsPresent(String expected){
         return expected.equals("TOUCAN project") || expected.equals("JETI project") || expected.equals("COALA project");
     }
+
 }

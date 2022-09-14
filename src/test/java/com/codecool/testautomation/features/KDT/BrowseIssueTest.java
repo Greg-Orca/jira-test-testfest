@@ -26,8 +26,8 @@ public class BrowseIssueTest {
     }
 
     @AfterAll
-    public void tearDown(){
-        quitDriver();
+    public static void tearDown(){
+        issuePage.quitD();
     }
 
     @Test

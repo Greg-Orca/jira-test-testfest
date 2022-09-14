@@ -96,4 +96,5 @@ public class CreateIssuePage extends BasePage {
         summaryField.sendKeys(summary);
         createIssueButton.click();
     }
+
 }
