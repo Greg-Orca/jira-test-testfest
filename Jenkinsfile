@@ -13,7 +13,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: "mvn clean test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=https://jira-auto.codecool.metastage.net")
+                sh(script: "mvn clean test -DUSERNAME=automation24 -DPASSWORD=$PASSWORD -DBASE_URL=https://jira-auto.codecool.metastage.net")
             }
             post {
                 always {
