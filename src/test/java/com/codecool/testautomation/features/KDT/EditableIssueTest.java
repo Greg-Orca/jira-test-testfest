@@ -26,7 +26,7 @@ public class EditableIssueTest {
     }
 
     @AfterEach
-    public static void tearDown() {
+    public void tearDown() {
         quitDriver();
     }
 

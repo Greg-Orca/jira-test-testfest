@@ -19,7 +19,7 @@ public class LogOutTest {
     }
 
     @AfterEach
-    public static void tearDown(){
+    public void tearDown(){
         quitDriver();
     }
 
