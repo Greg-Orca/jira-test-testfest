@@ -1,3 +1,4 @@
+def baseurl="https://jira-auto.codecool.metastage.net"
 pipeline {
     agent any
 
@@ -14,7 +15,7 @@ pipeline {
         }
         stage("run"){
             steps{
-                sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL="https://jira-auto.codecool.metastage.net"')
+                sh(script: 'mvn test -DUSERNAME=automation23 -DPASSWORD=$PASSWORD -DBASE_URL=$baseurl')
             }
             post {
                 always{
