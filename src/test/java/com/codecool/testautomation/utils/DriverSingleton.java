@@ -29,16 +29,16 @@ public class DriverSingleton {
 
         if (driver == null) {
             System.out.println("WBrowser:" + System.getProperty("BROWSER"));
-//            if ("firefox".equals(System.getProperty("BROWSER"))) {
-                WebDriverManager.firefoxdriver().setup();
+            if ("firefox".equals(System.getProperty("BROWSER"))) {
+//                WebDriverManager.firefoxdriver().setup();
                 capability.setBrowserName("firefox");
-//            } else {
-                WebDriverManager.chromedriver().setup();
+            } else {
+//                WebDriverManager.chromedriver().setup();
                 capability.setBrowserName("chrome");
             }
             driver = new RemoteWebDriver(new URL(nodeURL), capability);
             capability.setPlatform(Platform.LINUX);
-//        }
+        }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
