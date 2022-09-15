@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage("build"){
             steps{
+                cleanWs()
                 sh(script: "mvn compile")
             }
         }
@@ -14,6 +15,7 @@ pipeline {
             post {
                 always {
                     junit testResults: '**/target/surefire-reports/TEST-*.xml', skipPublishingChecks: true
+                    cleanWs()
                 }
             }
         }
