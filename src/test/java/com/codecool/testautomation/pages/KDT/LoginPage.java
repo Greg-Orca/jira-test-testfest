@@ -50,6 +50,7 @@ public class LoginPage extends BasePage{
     }
 
     public void logInSuccessful(){
+        System.out.println(USER_NAME + PASSWORD);
         openUrl("/login.jsp");
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
