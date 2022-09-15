@@ -19,8 +19,8 @@ pipeline {
                     post{
                         always {
                             junit '**/target/surefire-reports/TEST-*.xml'
-//                         }
-//                     }
+                        }
+                    }
 //                 }
 //                 stage('Test on Chrome') {
 //                     steps{
