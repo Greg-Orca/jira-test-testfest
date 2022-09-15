@@ -18,21 +18,23 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class DriverSingleton {
     private static WebDriver driver = null;
 
-    private DriverSingleton() {
+    private DriverSingleton() throws MalformedURLException {
     }
 
     public static WebDriver getDriver() throws MalformedURLException {
+        String wBrowser = System.getProperty("BROWSER");
         if (driver == null) {
 //            WebDriverManager.chromedriver().setup();
     //        WebDriverManager.firefoxdriver().setup();
 
             DesiredCapabilities capability = new DesiredCapabilities();
-
-//            capability.setBrowserName("chrome");
-    //        capability.setBrowserName("firefox");
-
+            if (wBrowser.equals("CHROME")){
+                capability.setBrowserName("chrome");
+            }
+            else if (wBrowser.equals("FIREFOX")){
+                capability.setBrowserName("firefox");
+            }
             capability.setPlatform(Platform.LINUX);
-
 
             driver = new RemoteWebDriver(
                     new URL("https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub"), capability);
