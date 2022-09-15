@@ -1,13 +1,7 @@
 package com.codecool.testautomation.utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -41,14 +35,6 @@ public class DriverSingleton {
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         }
-//        String browser = Utils.getEnvironmentVariable("BROWSER");
-//        if (driver == null) {
-//            switch (browser) {
-//                case "CHROME" -> driver = new ChromeDriver();
-//                case "SAFARI" -> driver = new SafariDriver();
-//                case "FIREFOX" -> driver = new FirefoxDriver();
-//            }
-//        }
         return driver;
     }
 
