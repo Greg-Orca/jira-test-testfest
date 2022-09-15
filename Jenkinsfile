@@ -16,6 +16,7 @@ pipeline {
                 always {
                     junit testResults: '**/target/surefire-reports/TEST-*.xml', skipPublishingChecks: true
                     cleanWs()
+
                 }
             }
         }
