@@ -28,6 +28,7 @@ public class DriverSingleton {
         String nodeURL = "https://selenium:CCAutoTest19.@seleniumhub.codecool.metastage.net/wd/hub";
 
         if (driver == null) {
+            System.out.println("WBrowser:" + System.getProperty("BROWSER"));
 //            if ("firefox".equals(System.getProperty("BROWSER"))) {
                 WebDriverManager.firefoxdriver().setup();
                 capability.setBrowserName("firefox");
