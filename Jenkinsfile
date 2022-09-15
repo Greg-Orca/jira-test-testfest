@@ -8,9 +8,15 @@ pipeline {
             }
         }
         stage("run"){
-            steps{
-                sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER=$BROWSER")
+            parallel{
+                stage("chrome run"){
+                    sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER=CHROME")
+                }
+                stage("firefox run"){
+                    sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER=FIREFOX")
+                }
             }
+
             post {
                 always {
                     junit testResults: '**/target/surefire-reports/TEST-*.xml', skipPublishingChecks: true
